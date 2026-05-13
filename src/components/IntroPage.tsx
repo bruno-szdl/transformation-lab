@@ -1,7 +1,7 @@
 import { useGameStore } from '../store/gameStore'
 
 /**
- * Lesson 0 — pure-prose introduction. Rendered as a full-width article
+ * Lesson 0: pure-prose introduction. Rendered as a full-width article
  * instead of the four-panel IDE. Mirrors SQLBolt's first-page pattern.
  */
 export default function IntroPage() {
@@ -38,7 +38,7 @@ export default function IntroPage() {
           Welcome to <strong style={{ color: 'var(--color-text)' }}>dbt-quest</strong>, a series of
           short, interactive lessons designed to help you learn{' '}
           <strong style={{ color: 'var(--color-text)' }}>dbt</strong> right in your browser. No
-          installs, no warehouse setup — just SQL, a fake project, and a real DuckDB engine running
+          installs, no warehouse setup. Just SQL, a fake project, and a real DuckDB engine running
           on this page.
         </p>
 
@@ -51,13 +51,13 @@ export default function IntroPage() {
         </p>
 
         <Aside title="Did you know?">
-          dbt projects are just folders of <code>.sql</code> and <code>.yml</code> files — no proprietary syntax. If you can write SQL, you can write dbt. But dbt turns those files into something bigger: a managed, tested, documented, version-controlled transformation framework with full lineage.
+          dbt projects are just folders of <code>.sql</code> and <code>.yml</code> files. No proprietary syntax. If you can write SQL, you can write dbt. But dbt turns those files into something bigger: a managed, tested, documented, version-controlled transformation framework with full lineage.
         </Aside>
 
         <SectionHeader>The mental model</SectionHeader>
         <p style={{ margin: '0 0 12px' }}>
           A dbt project is a folder full of <code>.sql</code> files. Each file is a{' '}
-          <code>SELECT</code> statement — what dbt calls a <strong style={{ color: 'var(--color-text)' }}>model</strong>.
+          <code>SELECT</code> statement (what dbt calls a <strong style={{ color: 'var(--color-text)' }}>model</strong>).
           You run <code>dbt run</code> and dbt:
         </p>
         <ol style={{ margin: '0 0 16px', paddingLeft: '24px' }}>
@@ -66,8 +66,8 @@ export default function IntroPage() {
           <li>Materializes each one as a view or table in the warehouse, in dependency order</li>
         </ol>
         <p style={{ margin: '0 0 16px' }}>
-          That's the core idea. Everything else — tests, docs, sources, materializations, snapshots
-          — is built on top of those primitives.
+          That's the core idea. Everything else (tests, docs, sources, materializations, snapshots)
+          is built on top of those primitives.
         </p>
 
         <SectionHeader>An example DAG</SectionHeader>
@@ -86,18 +86,26 @@ export default function IntroPage() {
         </p>
         <WorkspaceMock />
         <p style={{ margin: '8px 0 16px', fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
-          You won't see every panel on lesson 1 — they fade in as the lessons need them. By the
+          You won't see every panel on lesson 1. They fade in as the lessons need them. By the
           time you've built a few models, the full layout above will be on screen.
         </p>
 
         <SectionHeader>About the lessons</SectionHeader>
         <p style={{ margin: '0 0 16px' }}>
-          There are 12 short lessons. Each one introduces a single concept, then gives you 3–4
-          small tasks to apply it. The tasks share one workspace — files you create in task 1 are
-          still there in task 2, which mirrors how you'd actually work in a real dbt project.
+          There are 12 short lessons. Each one introduces a single concept, then gives you 3–5
+          small tasks to apply it. The tasks share one workspace — files you create in task 1
+          are still there in task 2.
         </p>
         <p style={{ margin: '0 0 16px' }}>
-          Go at your pace, edit the SQL freely, and don't worry about breaking things — every
+          Across lessons, every chapter is a <strong style={{ color: 'var(--color-text)' }}>snapshot
+          of the same fictional dbt project</strong>, picking up where the previous one left off.
+          When lesson 5 opens, the staging models from lessons 1–3 are already in your editor; by
+          lesson 12 you'll have a full staging → intermediate → marts pipeline with tests, docs,
+          and seeds. Each lesson resets to its own clean snapshot, so you can jump ahead or replay
+          any chapter without breaking progress.
+        </p>
+        <p style={{ margin: '0 0 16px' }}>
+          Go at your pace, edit the SQL freely, and don't worry about breaking things. Every
           lesson has a "Reset lesson" button in the top bar. If you get stuck, every task has a
           "Show hint" button.
         </p>
@@ -396,14 +404,14 @@ function WorkspaceMock() {
         </Bullet>
         <Bullet n={3} title="Warehouse">
           The DuckDB database that's running on this page. As you build models, they appear here as
-          tables and views — proof that your SQL actually ran.
+          tables and views (proof that your SQL actually ran).
         </Bullet>
         <Bullet n={4} title="Lineage">
           The DAG. Every <code>ref()</code> call in your SQL becomes an arrow between two models,
           updated live as you edit.
         </Bullet>
         <Bullet n={5} title="Editor">
-          Monaco — the same editor as VS Code. Tabs at the top for every open file. Edits save
+          Monaco (the same editor as VS Code). Tabs at the top for every open file. Edits save
           instantly; no save button.
         </Bullet>
         <Bullet n={6} title="Console">

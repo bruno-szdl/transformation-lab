@@ -15,6 +15,8 @@ export interface GameState {
   snapshotRunCounts: Record<string, number>
   /** Cumulative count of rows closed out by each snapshot. */
   snapshotClosedRows: Record<string, number>
+  /** Files the learner has opened in the editor this lesson. */
+  openedFiles: Set<string>
 }
 
 export interface GoalDagShape {

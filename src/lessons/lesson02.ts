@@ -1,31 +1,20 @@
 import type { Lesson } from '../engine/types'
 import { hasModel, modelRan, modelRefs, lineageHasEdge } from '../engine/validators'
-
-const RAW_CUSTOMERS = `id,name,email,country
-1,Alice,alice@example.com,US
-2,Bob,bob@example.com,CA
-3,Carol,carol@example.com,BR
-4,Dave,dave@example.com,IN
-5,Eve,eve@example.com,DE`
+import { RAW_CUSTOMERS_CSV, STG_CUSTOMERS_HARDCODED } from './_canonical'
 
 const lesson02: Lesson = {
   id: 2,
   title: 'ref() and the DAG',
   panels: ['warehouse', 'lineage'],
-  concept: `Models almost never stand alone — they read from other models. Instead of hardcoding the table name, you use \`{{ ref('model_name') }}\`. dbt parses every \`ref()\` to figure out which model depends on which, and that becomes the **DAG** (the lineage graph on the right).
+  concept: `Models almost never stand alone. They read from other models. Instead of hardcoding the table name, you use \`{{ ref('model_name') }}\`. dbt parses every \`ref()\` call to figure out which model depends on which, and that becomes the **DAG** (the lineage graph on the right).
 
-You'll build \`dim_customers\` on top of \`stg_customers\` using \`ref()\`.`,
+In our project, \`stg_customers\` is in place from the previous lesson. Now you'll build a \`dim_customers\` model on top of it using \`ref()\`.`,
   initialFiles: {
-    'models/stg_customers.sql': `select
-    id,
-    name,
-    email,
-    country
-from raw_customers`,
+    'models/stg_customers.sql': STG_CUSTOMERS_HARDCODED,
     'models/dim_customers.sql': `-- Replace this line with a SELECT that uses {{ ref('stg_customers') }}.
 `,
   },
-  seeds: { raw_customers: RAW_CUSTOMERS },
+  seeds: { raw_customers: RAW_CUSTOMERS_CSV },
   preRanModels: ['stg_customers'],
   tasks: [
     {
@@ -55,7 +44,7 @@ from raw_customers`,
       "It's just shorter to type",
     ],
     correctIndex: 1,
-    explanation: '`ref()` is what gives dbt the dependency graph — without it, dbt has no idea your model depends on another model.',
+    explanation: '`ref()` is what gives dbt the dependency graph. Without it, dbt has no idea your model depends on another model.',
   },
   goal: {
     dagShape: {

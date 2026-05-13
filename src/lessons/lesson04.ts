@@ -1,37 +1,42 @@
 import type { Lesson } from '../engine/types'
 import { modelMaterialization, modelRan } from '../engine/validators'
-
-const RAW_CUSTOMERS = `id,name,country
-1,Alice,US
-2,Bob,CA
-3,Carol,BR`
+import {
+  RAW_CUSTOMERS_CSV,
+  RAW_ORDERS_CSV,
+  STG_CUSTOMERS_HARDCODED,
+  DIM_CUSTOMERS_VIEW,
+  STG_ORDERS_HARDCODED,
+  INT_PAID_ORDERS,
+  FCT_REVENUE_BY_CUSTOMER,
+} from './_canonical'
 
 const lesson04: Lesson = {
   id: 4,
   title: 'Materializations: view vs table',
   panels: ['lineage', 'files', 'warehouse'],
-  concept: `By default, every dbt model becomes a **view** — a saved query that re-runs every time it's selected. Views are cheap to build but slow to query.
+  concept: `By default, every dbt model becomes a **view** (a saved query that re-runs every time it's selected). Views are cheap to build but slow to query.
 
-When a model is queried frequently or is expensive to compute, you'll want a **table** — the result is physically stored. You switch the materialization with a config block at the top of the model:
+When a model is queried frequently or is expensive to compute, you'll want a **table** (the result is physically stored). You switch the materialization with a config block at the top of the model:
 
 \`\`\`sql
 {{ config(materialized='table') }}
 
 select ...
-\`\`\``,
+\`\`\`
+
+Our project's marts get hit often by downstream consumers. Convert \`dim_customers\` to a table so reads are fast.`,
   initialFiles: {
-    'models/stg_customers.sql': `select
-    id,
-    name,
-    country
-from raw_customers`,
-    'models/dim_customers.sql': `select
-    id,
-    name,
-    country
-from {{ ref('stg_customers') }}`,
+    'models/stg_customers.sql': STG_CUSTOMERS_HARDCODED,
+    'models/dim_customers.sql': DIM_CUSTOMERS_VIEW,
+    'models/stg_orders.sql': STG_ORDERS_HARDCODED,
+    'models/int_paid_orders.sql': INT_PAID_ORDERS,
+    'models/fct_revenue_by_customer.sql': FCT_REVENUE_BY_CUSTOMER,
   },
-  seeds: { raw_customers: RAW_CUSTOMERS },
+  seeds: {
+    raw_customers: RAW_CUSTOMERS_CSV,
+    raw_orders: RAW_ORDERS_CSV,
+  },
+  preRanModels: ['stg_customers', 'dim_customers', 'stg_orders', 'int_paid_orders', 'fct_revenue_by_customer'],
   tasks: [
     {
       id: 'table',
@@ -41,7 +46,7 @@ from {{ ref('stg_customers') }}`,
     },
     {
       id: 'view',
-      prompt: "Make sure `stg_customers` stays as a view (the default — no config needed).",
+      prompt: "Make sure `stg_customers` stays as a view (the default; no config needed).",
       hint: "Views are the default. As long as you haven't added a config block to stg_customers, it's already a view.",
       validate: (s) => modelMaterialization(s, 'stg_customers', 'view'),
     },
@@ -54,13 +59,13 @@ from {{ ref('stg_customers') }}`,
   quiz: {
     question: 'When should you prefer a table materialization over a view?',
     options: [
-      'Always — tables are faster',
-      'Never — views are cheaper',
+      'Always. Tables are faster',
+      'Never. Views are cheaper',
       "When the model is queried often or is expensive to compute",
       'Only on the first run',
     ],
     correctIndex: 2,
-    explanation: 'Tables trade build time for query time. Use them when the read cost outweighs the build cost — typically marts and dashboards.',
+    explanation: 'Tables trade build time for query time. Use them when the read cost outweighs the build cost (typically marts and dashboards).',
   },
   furtherReading: [
     { label: 'Materializations', url: 'https://docs.getdbt.com/docs/build/materializations' },

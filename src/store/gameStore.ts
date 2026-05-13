@@ -5,7 +5,7 @@ import { previewModel, plan, materializeModels } from '../engine/executor'
 import { getLessonById, getLastLessonId, taskKey, lessons } from '../lessons'
 import type { TerminalLine } from '../engine/runner'
 import { registerCsv, resetDb } from '../engine/duckdb'
-import { sourceViewName, getFileStem } from '../engine/compiler'
+import { sourceViewName } from '../engine/compiler'
 import { errorMessage } from '../engine/errors'
 import { safeStorage } from './safeStorage'
 import { ALL_PANELS, type PanelKey } from '../engine/types'
@@ -52,6 +52,7 @@ interface StoreState {
   buildSucceeded: boolean
   snapshotRunCounts: Record<string, number>
   snapshotClosedRows: Record<string, number>
+  openedFiles: Set<string>
   terminalHistory: TerminalLine[]
   running: boolean
   lastPreview: PreviewResult | null
@@ -106,6 +107,7 @@ export const useGameStore = create<StoreState>()(
       buildSucceeded: false,
       snapshotRunCounts: {},
       snapshotClosedRows: {},
+      openedFiles: new Set<string>(),
       terminalHistory: [{ text: 'dbt-quest — loading...', color: 'gray' }],
       running: false,
       lastPreview: null,
@@ -135,7 +137,15 @@ export const useGameStore = create<StoreState>()(
         checkTasksTimer = setTimeout(() => get().checkTasks(), 600)
       },
 
-      openFile: (path) => set({ activeFile: path }),
+      openFile: (path) => {
+        set((s) => ({
+          activeFile: path,
+          openedFiles: s.openedFiles.has(path)
+            ? s.openedFiles
+            : new Set([...s.openedFiles, path]),
+        }))
+        get().checkTasks()
+      },
 
       createFile: (path, content) =>
         set((s) => ({
@@ -336,6 +346,7 @@ export const useGameStore = create<StoreState>()(
           buildSucceeded: false,
           snapshotRunCounts: {},
           snapshotClosedRows: {},
+          openedFiles: firstFile ? new Set([firstFile]) : new Set<string>(),
           currentLessonId: id,
           lastPreview: null,
           running: true,
@@ -353,12 +364,8 @@ export const useGameStore = create<StoreState>()(
           for (const [key, csv] of Object.entries(seeds)) {
             await registerCsv(seedTableName(key), csv)
           }
-          for (const [path, csv] of Object.entries(lesson.initialFiles)) {
-            if (path.startsWith('seeds/') && path.endsWith('.csv')) {
-              const name = getFileStem(path, '.csv')
-              await registerCsv(name, csv.trim())
-            }
-          }
+          // Note: seeds/*.csv files declared in `initialFiles` are NOT pre-loaded.
+          // They're checked-in CSVs the learner must materialize with `dbt seed`.
           const preRanSet = new Set<string>()
           const preRanColumns: Record<string, string[]> = {}
           if (lesson.preRanModels?.length) {
@@ -412,6 +419,7 @@ export const useGameStore = create<StoreState>()(
           buildSucceeded: s.buildSucceeded,
           snapshotRunCounts: s.snapshotRunCounts,
           snapshotClosedRows: s.snapshotClosedRows,
+          openedFiles: s.openedFiles,
         }
 
         let changed = false

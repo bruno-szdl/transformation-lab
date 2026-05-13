@@ -2,6 +2,13 @@ import type { GameState } from './types'
 import { parseTests, type TestKind } from './tests'
 import { getModelName } from './compiler'
 
+/** Remove SQL line comments (--) and block comments (/* *\/) from content. */
+function stripSqlComments(sql: string): string {
+  return sql
+    .replace(/\/\*[\s\S]*?\*\//g, '')   // block comments
+    .replace(/--[^\n]*/g, '')            // line comments
+}
+
 function findModelPath(files: Record<string, string>, name: string): string | undefined {
   return Object.keys(files).find(
     (p) => p.startsWith('models/') && p.endsWith('.sql') && getModelName(p) === name,
@@ -15,7 +22,7 @@ export function hasModel(state: GameState, name: string): boolean {
 export function modelRefs(state: GameState, modelName: string, refName: string): boolean {
   const path = findModelPath(state.files, modelName)
   if (!path) return false
-  const content = state.files[path] ?? ''
+  const content = stripSqlComments(state.files[path] ?? '')
   const re = /\{\{\s*ref\s*\(\s*['"]([^'"]+)['"]\s*\)\s*\}\}/g
   let m
   while ((m = re.exec(content))) if (m[1] === refName) return true
@@ -59,7 +66,7 @@ export function modelMaterialization(
 ): boolean {
   const path = findModelPath(state.files, name)
   if (!path) return false
-  const content = state.files[path] ?? ''
+  const content = stripSqlComments(state.files[path] ?? '')
   const re = /\{\{\s*config\s*\([^)]*materialized\s*=\s*['"](\w+)['"]/
   const m = re.exec(content)
   if (m) return m[1] === type
@@ -92,7 +99,7 @@ export function lineageHasSourceEdge(
 ): boolean {
   const path = findModelPath(state.files, to)
   if (!path) return false
-  const content = state.files[path] ?? ''
+  const content = stripSqlComments(state.files[path] ?? '')
   const re = /\{\{\s*source\s*\(\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]+)['"]\s*\)\s*\}\}/g
   let m
   while ((m = re.exec(content))) {
@@ -126,5 +133,31 @@ export function buildSucceeded(state: GameState): boolean {
 
 export function seedLoaded(state: GameState, seedName: string): boolean {
   return state.loadedSeeds.has(seedName)
+}
+
+/** True if the model's SQL (comments stripped) matches the given regex (case-insensitive). */
+export function modelSqlMatches(
+  state: GameState,
+  name: string,
+  pattern: RegExp,
+): boolean {
+  const path = findModelPath(state.files, name)
+  if (!path) return false
+  const content = stripSqlComments(state.files[path] ?? '')
+  const flags = pattern.flags.includes('i') ? pattern.flags : pattern.flags + 'i'
+  const re = new RegExp(pattern.source, flags)
+  return re.test(content)
+}
+
+/** True if a file at `path` exists and its (comments-stripped where applicable)
+ *  content matches the regex. Works for any file type. */
+export function fileMatches(
+  state: GameState,
+  path: string,
+  pattern: RegExp,
+): boolean {
+  const content = state.files[path]
+  if (content == null) return false
+  return pattern.test(content)
 }
 

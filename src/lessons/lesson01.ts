@@ -1,36 +1,28 @@
 import type { Lesson } from '../engine/types'
 import { modelRan, modelShown } from '../engine/validators'
-
-const RAW_CUSTOMERS = `id,name,email,country
-1,Alice,alice@example.com,US
-2,Bob,bob@example.com,CA
-3,Carol,carol@example.com,BR
-4,Dave,dave@example.com,IN
-5,Eve,eve@example.com,DE`
+import { RAW_CUSTOMERS_CSV, STG_CUSTOMERS_HARDCODED } from './_canonical'
 
 const lesson01: Lesson = {
   id: 1,
   title: 'Your first dbt model',
   panels: ['warehouse'],
-  concept: `A **model** in dbt is just a \`SELECT\` statement saved as a \`.sql\` file inside the \`models/\` folder. When you run dbt, it turns that query into a **view** in your database — a saved query the database knows by name.
+  concept: `Throughout this course you'll be working on a single fictional dbt project for a small e-commerce company. Each lesson adds one new concept on top of what came before.
 
-You already have one model — \`stg_customers.sql\` — that reads from a raw table called \`raw_customers\`.
+A **model** in dbt is just a \`SELECT\` statement saved as a \`.sql\` file inside the \`models/\` folder. When you run dbt, it turns that query into a **view** in your database (a saved query the database knows by name).
+
+The project already has one model: \`stg_customers.sql\`. It reads from a raw table called \`raw_customers\`.
 
 Two commands you'll use constantly:
 
-- \`dbt run\` — builds every model. After it finishes, \`stg_customers\` will appear in the **Database** panel as a view.
-- \`dbt show --select <model>\` — previews the rows of a model.
+- \`dbt run\`: builds every model. After it finishes, \`stg_customers\` will appear in the **Database** panel as a view.
+
+- \`dbt show --select <model>\`: previews the rows of a model.
 
 Try them below.`,
   initialFiles: {
-    'models/stg_customers.sql': `select
-    id,
-    name,
-    email,
-    country
-from raw_customers`,
+    'models/stg_customers.sql': STG_CUSTOMERS_HARDCODED,
   },
-  seeds: { raw_customers: RAW_CUSTOMERS },
+  seeds: { raw_customers: RAW_CUSTOMERS_CSV },
   tasks: [
     {
       id: 'run',
