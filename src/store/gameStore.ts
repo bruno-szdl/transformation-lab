@@ -471,10 +471,9 @@ export const useGameStore = create<StoreState>()(
         for (const task of lesson.tasks) {
           const key = taskKey(s.currentLessonId, task.id)
           if (next.has(key)) continue
-          if (task.validate(state)) {
-            next.add(key)
-            changed = true
-          }
+          if (!task.validate(state)) break
+          next.add(key)
+          changed = true
         }
         if (changed) set({ completedTasks: next })
       },
