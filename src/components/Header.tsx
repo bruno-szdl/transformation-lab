@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useGameStore, lessonCompleted } from '../store/gameStore'
 import { lessons, getLessonById } from '../lessons'
+import { localizedLessonTitle } from '../i18n/useLocalizedLesson'
 import { useIsMobile } from '../hooks/useIsMobile'
 
 export default function Header() {
@@ -100,7 +101,8 @@ function LessonSelector({ compact = false }: { compact?: boolean }) {
   const completedTasks = useGameStore((s) => s.completedTasks)
   const loadLesson = useGameStore((s) => s.loadLesson)
   const lesson = getLessonById(currentLessonId)
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language
 
   useEffect(() => {
     if (!open) return
@@ -157,7 +159,7 @@ function LessonSelector({ compact = false }: { compact?: boolean }) {
                 minWidth: 0,
               }}
             >
-              {lesson.title}
+              {localizedLessonTitle(lesson, lang)}
             </span>
           </>
         )}
@@ -235,7 +237,7 @@ function LessonSelector({ compact = false }: { compact?: boolean }) {
                     flex: 1,
                   }}
                 >
-                  {l.title}
+                  {localizedLessonTitle(l, lang)}
                 </span>
                 {isCompleted && (
                   <svg width="10" height="10" viewBox="0 0 16 16" fill="none">

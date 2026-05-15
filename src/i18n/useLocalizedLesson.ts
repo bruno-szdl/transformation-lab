@@ -23,6 +23,17 @@ function overrideOptional(translated: string | undefined, fallback: string | und
   return fallback
 }
 
+/**
+ * Non-hook helper for places that show a lesson's title outside `LessonPanel`
+ * (e.g. the header lesson selector and its dropdown). Caller passes the current
+ * `i18n.language` so the lookup respects the user's language toggle.
+ */
+export function localizedLessonTitle(lesson: Lesson, lang: string): string {
+  if (lang === 'en') return lesson.title
+  const map = localeMap[lang]
+  return override(map?.[String(lesson.id)]?.title, lesson.title)
+}
+
 export function useLocalizedLesson(lesson: Lesson): Lesson {
   const { i18n } = useTranslation()
   const lang = i18n.language
