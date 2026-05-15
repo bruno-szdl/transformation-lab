@@ -32,6 +32,7 @@ const lesson14: Lesson = {
 1. **Seeds** - loads CSV files from \`seeds/\` into the warehouse
 2. **Models** - materializes each model in dependency order
 3. **Tests** - runs tests immediately after each model, and skips downstream models if one fails
+4. **Snapshots** - captures slowly-changing dimension history (not covered in these lessons)
 
 That last point is the safety net: no broken upstream data quietly poisons a dashboard.
 
