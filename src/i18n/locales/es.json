@@ -34,7 +34,7 @@
     }
   },
   "intro": {
-    "tagline": "Aprende dbt en tu navegador.",
+    "tagline": "Aprende dbt gratis en tu navegador.",
     "subTagline": "{{count}} lecciones cortas e interactivas. SQL de verdad, un warehouse de verdad, un DAG de verdad. Todo corriendo en esta página. Sin instalación, sin registro.",
     "ctaBegin": "Empezar por la Lección 1 ›",
     "ctaContinue": "Seguir donde lo dejé ›",
@@ -81,7 +81,7 @@
     },
     "beforeYouStart": {
       "heading": "Antes de empezar",
-      "body": "Solo necesitas SQL básico — `SELECT`, `WHERE`, `GROUP BY`. Nada más. No necesitas una base de datos de datos, una instalación de dbt, ni experiencia con la línea de comandos. Todo corre en tu navegador."
+      "body": "Solo necesitas SQL básico — `SELECT`, `WHERE`, `GROUP BY`. Nada más. Sin base de datos, sin instalación de dbt, sin experiencia en línea de comandos necesaria. Todo corre en tu navegador."
     },
     "footer": {
       "builtBy": "Hecho por Bruno Lima",

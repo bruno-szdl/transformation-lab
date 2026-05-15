@@ -34,7 +34,7 @@
     }
   },
   "intro": {
-    "tagline": "Learn dbt in your browser.",
+    "tagline": "Learn dbt free in your browser.",
     "subTagline": "{{count}} short interactive lessons. Real SQL, a real warehouse, a real DAG. All running in this page. No install, no signup.",
     "ctaBegin": "Begin Lesson 1 ›",
     "ctaContinue": "Continue learning ›",
@@ -81,7 +81,7 @@
     },
     "beforeYouStart": {
       "heading": "Before you start",
-      "body": "You only need to know basic SQL — `SELECT`, `WHERE`, `GROUP BY`. That's it. You don't need a database, a dbt installation, or command-line experience. Everything runs in your browser."
+      "body": "You only need to know basic SQL — `SELECT`, `WHERE`, `GROUP BY`. That's it. No database, no dbt installation, no command-line experience needed. Everything runs in your browser."
     },
     "footer": {
       "builtBy": "Built by Bruno Lima",
