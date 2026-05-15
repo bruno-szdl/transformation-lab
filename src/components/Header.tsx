@@ -268,31 +268,139 @@ function DbtLogo() {
   )
 }
 
+const LANGUAGES: ReadonlyArray<{ code: string; label: string }> = [
+  { code: 'en', label: 'English' },
+  { code: 'pt', label: 'Português' },
+  { code: 'es', label: 'Español' },
+]
+
 function LangToggleButton() {
   const { i18n, t } = useTranslation()
-  const current = i18n.language === 'pt' ? 'pt' : 'en'
+  const [open, setOpen] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const current = LANGUAGES.find((l) => l.code === i18n.language) ?? LANGUAGES[0]
 
-  const toggle = () => {
-    const next = current === 'en' ? 'pt' : 'en'
-    void i18n.changeLanguage(next)
-    localStorage.setItem('dbt-quest-lang', next)
+  useEffect(() => {
+    if (!open) return
+    const handler = (e: MouseEvent) => {
+      if (!containerRef.current?.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [open])
+
+  const choose = (code: string) => {
+    void i18n.changeLanguage(code)
+    localStorage.setItem('dbt-quest-lang', code)
+    setOpen(false)
   }
 
   return (
-    <button
-      onClick={toggle}
-      title={t('header.changeLanguage')}
-      className="icon-btn flex items-center justify-center"
-      style={{
-        height: '28px',
-        padding: '0 7px',
-        fontFamily: 'JetBrains Mono, monospace',
-        fontSize: '0.625rem',
-        letterSpacing: '0.05em',
-      }}
-    >
-      {current.toUpperCase()}
-    </button>
+    <div ref={containerRef} style={{ position: 'relative' }}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        title={t('header.changeLanguage')}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        className="icon-btn flex items-center justify-center gap-1"
+        style={{
+          height: '28px',
+          padding: '0 7px',
+          fontFamily: 'JetBrains Mono, monospace',
+          fontSize: '0.625rem',
+          letterSpacing: '0.05em',
+        }}
+      >
+        <GlobeIcon />
+        {current.code.toUpperCase()}
+        <svg
+          width="8"
+          height="8"
+          viewBox="0 0 16 16"
+          fill="none"
+          style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.15s' }}
+        >
+          <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {open && (
+        <div
+          role="listbox"
+          aria-label={t('header.changeLanguage')}
+          style={{
+            position: 'absolute',
+            top: 'calc(100% + 6px)',
+            right: 0,
+            background: 'var(--color-surface)',
+            border: '1px solid var(--color-border)',
+            borderRadius: '8px',
+            padding: '4px',
+            minWidth: '140px',
+            zIndex: 100,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+          }}
+        >
+          {LANGUAGES.map((l) => {
+            const isCurrent = l.code === current.code
+            return (
+              <button
+                key={l.code}
+                onClick={() => choose(l.code)}
+                role="option"
+                aria-selected={isCurrent}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  width: '100%',
+                  padding: '6px 8px',
+                  background: isCurrent ? 'var(--color-accent-bg)' : 'transparent',
+                  border: 'none',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                  textAlign: 'left' as const,
+                }}
+                onMouseEnter={(e) => { if (!isCurrent) e.currentTarget.style.background = 'rgba(128,128,128,0.08)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = isCurrent ? 'var(--color-accent-bg)' : 'transparent' }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'JetBrains Mono, monospace',
+                    fontSize: '0.625rem',
+                    color: isCurrent ? 'var(--color-accent-orange)' : 'var(--color-muted)',
+                    width: '20px',
+                    flexShrink: 0,
+                    letterSpacing: '0.05em',
+                  }}
+                >
+                  {l.code.toUpperCase()}
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'IBM Plex Sans, sans-serif',
+                    fontSize: '0.75rem',
+                    color: isCurrent ? 'var(--color-text)' : 'var(--color-text-muted)',
+                    flex: 1,
+                  }}
+                >
+                  {l.label}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function GlobeIcon() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="6.25" stroke="currentColor" strokeWidth="1.3" />
+      <ellipse cx="8" cy="8" rx="2.5" ry="6.25" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M1.75 8h12.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+    </svg>
   )
 }
 

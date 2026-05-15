@@ -73,6 +73,22 @@ Tasks validate purely from observed `GameState` (`files`, `ranModels`, `testResu
 
 Every lesson is a slice of the **same fictional e-commerce dbt project**. `src/lessons/_canonical.ts` holds the "ideal" file contents at each milestone (the shared raw CSVs, staging/mart model SQL, `schema.yml` snapshots). Each lesson imports the snapshot constants it starts from, so the project evolves coherently lesson to lesson.
 
+### Internationalization (i18n)
+
+**CRITICAL: Any time you touch text that is exposed to the student, you must update all translation files.**
+
+Student-facing text lives in two places:
+- `src/i18n/locales/` — UI strings (button labels, headings, status messages). Files: `en.json`, `pt.json`, `es.json`
+- `src/i18n/lessons/` — lesson-specific text (concept explanations, task prompts, hints, quiz questions/answers). Files: `pt.json`, `es.json` (English is the source in the lesson TS files themselves)
+
+If you add or change any of the following, update `pt.json` and `es.json` accordingly:
+- Lesson `concept` text
+- Task `prompt` or `hint` strings
+- Quiz questions or answer choices
+- Any UI string present in `src/i18n/locales/en.json`
+
+Never leave a translation key missing or stale. If you are unsure of the correct translation, add a best-effort translation and leave a `// TODO: verify translation` comment in the PR description — but do not skip the update entirely.
+
 ### Adding a lesson
 
 Create `src/lessons/lessonNN.ts` and register it in `src/lessons/index.ts`. `getLastLessonId()` returns `max(lesson.id)` automatically — it's the single source of truth for "is this the last lesson?", used by the lesson panel / navigation. Do not guard "last lesson" with `lessons.length`.

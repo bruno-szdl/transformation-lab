@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import type { Lesson } from '../engine/types'
 import ptLessons from './lessons/pt.json'
+import esLessons from './lessons/es.json'
 
 type LessonLocale = {
   title?: string
@@ -12,6 +13,7 @@ type LessonLocale = {
 
 const localeMap: Record<string, Record<string, LessonLocale>> = {
   pt: ptLessons as Record<string, LessonLocale>,
+  es: esLessons as Record<string, LessonLocale>,
 }
 
 function override(translated: string | undefined, fallback: string): string {
