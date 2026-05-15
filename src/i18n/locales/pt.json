@@ -7,7 +7,9 @@
     "lightMode": "Mudar para o tema claro",
     "darkMode": "Mudar para o tema escuro",
     "changeLanguage": "Mudar idioma",
-    "lessonsAria": "Lições"
+    "lessonsAria": "Lições",
+    "resetLesson": "Resetar lição",
+    "resetLessonConfirm": "Tem certeza?"
   },
   "lessonPanel": {
     "badge": "Lição {{current}} / {{total}}",

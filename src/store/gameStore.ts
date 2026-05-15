@@ -112,6 +112,8 @@ interface StoreState {
   seenPanels: Set<PanelKey>
   /** Panels revealed by the current lesson load — drives the "New" pulse. */
   newlyRevealedPanels: Set<PanelKey>
+  /** Increments on every loadLesson call; forces Monaco to remount. */
+  editorKey: number
 
   setFileContent: (path: string, content: string) => void
   openFile: (path: string) => void
@@ -124,6 +126,7 @@ interface StoreState {
   setDagSelection: (selection: Set<string> | null) => void
 
   loadLesson: (id: number) => Promise<void>
+  resetLesson: () => Promise<void>
   checkTasks: () => void
   revealHint: (lessonId: number, taskId: string) => void
   markQuizCorrect: (lessonId: number) => void
@@ -165,6 +168,7 @@ export const useGameStore = create<StoreState>()(
       completedTasks: new Set<string>(initialProgress?.completedTasks ?? []),
       correctQuizzes: new Set<number>(initialProgress?.correctQuizzes ?? []),
       revealedHints: new Set<string>(),
+      editorKey: 0,
 
       bottomTab: 'commands',
 
@@ -419,7 +423,8 @@ export const useGameStore = create<StoreState>()(
         const nextSeen = new Set<PanelKey>([...prevSeen, ...requiredPanels])
         if (newlyRevealed.size > 0) persistSeenPanels(nextSeen)
 
-        set({
+        set((s) => ({
+          editorKey: s.editorKey + 1,
           files: { ...lesson.initialFiles },
           activeFile: firstFile,
           openTabs: filesToOpen.length > 0 ? new Set(filesToOpen) : new Set<string>(),
@@ -444,7 +449,7 @@ export const useGameStore = create<StoreState>()(
           terminalHistory: [
             { text: 'Preparing DuckDB…', color: 'gray' },
           ],
-        })
+        }))
         persistProgress(get())
 
         try {
@@ -483,6 +488,15 @@ export const useGameStore = create<StoreState>()(
         } finally {
           set({ running: false })
         }
+      },
+
+      resetLesson: async () => {
+        const { currentLessonId, completedTasks } = get()
+        if (currentLessonId === null) return
+        const prefix = `${currentLessonId}.`
+        const pruned = new Set([...completedTasks].filter((k) => !k.startsWith(prefix)))
+        set({ completedTasks: pruned })
+        await get().loadLesson(currentLessonId)
       },
 
       checkTasks: () => {

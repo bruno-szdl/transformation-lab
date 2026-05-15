@@ -7,7 +7,9 @@
     "lightMode": "Switch to light mode",
     "darkMode": "Switch to dark mode",
     "changeLanguage": "Change language",
-    "lessonsAria": "Lessons"
+    "lessonsAria": "Lessons",
+    "resetLesson": "Reset lesson",
+    "resetLessonConfirm": "Sure? Reset"
   },
   "lessonPanel": {
     "badge": "Lesson {{current}} / {{total}}",

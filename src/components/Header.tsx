@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useGameStore, lessonCompleted } from '../store/gameStore'
 import { lessons, getLessonById } from '../lessons'
@@ -39,6 +39,9 @@ export default function Header() {
       </div>
 
       <div className="flex items-center gap-2 shrink-0">
+        <ResetLessonButton />
+        <LangToggleButton />
+        <ThemeToggleButton />
         <ExternalIconLink
           href="https://github.com/bruno-szdl/dbt-quest"
           label={t('header.githubLabel')}
@@ -51,10 +54,61 @@ export default function Header() {
         >
           <LinkedInIcon />
         </ExternalIconLink>
-        <LangToggleButton />
-        <ThemeToggleButton />
       </div>
     </header>
+  )
+}
+
+function ResetLessonButton() {
+  const { t } = useTranslation()
+  const currentLessonId = useGameStore((s) => s.currentLessonId)
+  const resetLesson = useGameStore((s) => s.resetLesson)
+  const [armed, setArmed] = useState(false)
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const handleClick = useCallback(() => {
+    if (armed) {
+      if (timerRef.current) clearTimeout(timerRef.current)
+      setArmed(false)
+      void resetLesson()
+    } else {
+      setArmed(true)
+      timerRef.current = setTimeout(() => setArmed(false), 3000)
+    }
+  }, [armed, resetLesson])
+
+  useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current) }, [])
+
+  if (currentLessonId === null || currentLessonId === 0) return null
+
+  return (
+    <button
+      onClick={handleClick}
+      title={armed ? t('header.resetLessonConfirm') : t('header.resetLesson')}
+      className="icon-btn flex items-center justify-center gap-1"
+      style={{
+        height: '28px',
+        padding: '0 8px',
+        fontFamily: 'IBM Plex Sans, sans-serif',
+        fontSize: '0.6875rem',
+        color: armed ? 'var(--color-error, #f87171)' : 'var(--color-muted)',
+        borderColor: armed ? 'var(--color-error, #f87171)' : undefined,
+        transition: 'color 0.15s',
+        whiteSpace: 'nowrap',
+      }}
+    >
+      <ResetIcon />
+      {armed ? t('header.resetLessonConfirm') : t('header.resetLesson')}
+    </button>
+  )
+}
+
+function ResetIcon() {
+  return (
+    <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M2 8a6 6 0 1 1 1.5 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M2 12V8h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   )
 }
 

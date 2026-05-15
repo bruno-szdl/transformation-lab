@@ -73,7 +73,7 @@ export default function Editor() {
   const closeTab = useGameStore((s) => s.closeTab)
   const setFileContent = useGameStore((s) => s.setFileContent)
   const theme = useGameStore((s) => s.theme)
-  const currentLessonId = useGameStore((s) => s.currentLessonId)
+  const editorKey = useGameStore((s) => s.editorKey)
   const openTabs = useGameStore((s) => s.openTabs)
 
   const tabPaths = [...openTabs].filter((p) => p in files)
@@ -186,7 +186,7 @@ export default function Editor() {
           </div>
         ) : (
           <MonacoEditor
-            key={`${currentLessonId}-${activeFile}`}
+            key={`${editorKey}-${activeFile}`}
             height="100%"
             language={detectLanguage(activeFile)}
             theme={theme === 'dark' ? 'vs-dark' : 'light'}
