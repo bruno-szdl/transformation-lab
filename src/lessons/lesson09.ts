@@ -1,6 +1,7 @@
 import type { Lesson } from '../engine/types'
 import {
   testDefinitionsInclude,
+  relationshipTestPoints,
   allTestsPass,
 } from '../engine/validators'
 import {
@@ -88,7 +89,7 @@ Our \`stg_customers\` already has \`not_null\` + \`unique\` from the previous le
       id: 'rel',
       prompt: "Add a `relationships` test to `stg_orders.customer_id` pointing at `stg_customers.id`.",
       hint: "Add:\n```\n          - relationships:\n              arguments:\n                to: ref('stg_customers')\n                field: id\n```",
-      validate: (s) => testDefinitionsInclude(s, 'stg_orders', ['relationships']),
+      validate: (s) => relationshipTestPoints(s, 'stg_orders', 'customer_id', 'stg_customers', 'id'),
     },
     {
       id: 'run',

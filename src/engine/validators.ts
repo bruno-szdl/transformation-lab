@@ -113,6 +113,25 @@ export function lineageHasSourceEdge(
   return false
 }
 
+/** True if a relationships test on `model.column` points at `toModel.field`. */
+export function relationshipTestPoints(
+  state: GameState,
+  model: string,
+  column: string,
+  toModel: string,
+  field: string,
+): boolean {
+  const defs = parseTests(state.files, new Set([model]))
+  return defs.some(
+    (d) =>
+      d.model === model &&
+      d.column === column &&
+      d.kind === 'relationships' &&
+      d.to === toModel &&
+      d.field === field,
+  )
+}
+
 /** True if every expected test kind is declared in YAML for the model (any column). */
 export function testDefinitionsInclude(
   state: GameState,
