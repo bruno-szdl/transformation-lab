@@ -12,7 +12,7 @@ User-agent: Twitterbot
 Disallow: /
 
 # Sitemap location
-Sitemap: https://dbtquest.io/sitemap.xml
+Sitemap: https://dbtquest.com/sitemap.xml
 
 # Crawl delay (milliseconds between requests)
 Crawl-delay: 1

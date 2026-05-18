@@ -53,7 +53,7 @@ After finishing dbt Quest you'll be ready to set up a real dbt project against D
 
 ## Play Online
 
-dbt Quest is live at [dbtquest.io](https://dbtquest.io). Start with Lesson 0 and progress through 15 lessons.
+dbt Quest is live at [dbtquest.com](https://dbtquest.com). Start with Lesson 0 and progress through 15 lessons.
 
 ## Deployment
 

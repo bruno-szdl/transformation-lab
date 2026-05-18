@@ -172,8 +172,8 @@ dbtQuest = (window as any).__ZUSTAND_DEVTOOLS_CONTEXT__.store.getState()
 - [ ] Verify mobile layout
 - [ ] Test light/dark theme toggle
 - [ ] Check language selector (en/pt/es)
-- [ ] Verify robots.txt is served: https://dbtquest.io/robots.txt
-- [ ] Verify sitemap.xml is served: https://dbtquest.io/sitemap.xml
+- [ ] Verify robots.txt is served: https://dbtquest.com/robots.txt
+- [ ] Verify sitemap.xml is served: https://dbtquest.com/sitemap.xml
 - [ ] Test og:image preview: https://www.opengraph.xyz/
 - [ ] Deploy to Vercel: vercel deploy --prod
 - [ ] Submit sitemap to Google Search Console
