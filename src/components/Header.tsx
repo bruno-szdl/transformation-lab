@@ -8,6 +8,9 @@ import { useIsMobile } from '../hooks/useIsMobile'
 export default function Header() {
   const isMobile = useIsMobile()
   const { t } = useTranslation()
+  const loadLesson = useGameStore((s) => s.loadLesson)
+  const currentLessonId = useGameStore((s) => s.currentLessonId)
+
   return (
     <header
       className="flex items-center justify-between shrink-0"
@@ -20,9 +23,24 @@ export default function Header() {
       }}
     >
       <div className="flex items-center gap-2 min-w-0" style={{ flex: 1 }}>
-        <DbtLogo />
-        {!isMobile && (
-          <>
+        <button
+          onClick={() => void loadLesson(0)}
+          title={t('header.backToIntro')}
+          aria-label={t('header.backToIntro')}
+          className="flex items-center gap-2"
+          style={{
+            background: 'transparent',
+            border: 'none',
+            padding: '4px 6px',
+            borderRadius: '5px',
+            cursor: currentLessonId === 0 ? 'default' : 'pointer',
+            flexShrink: 0,
+          }}
+          onMouseEnter={(e) => { if (currentLessonId !== 0) e.currentTarget.style.background = 'rgba(128,128,128,0.08)' }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent' }}
+        >
+          <DbtLogo />
+          {!isMobile && (
             <div className="flex flex-col justify-center" style={{ gap: '1px' }}>
               <div className="flex items-center gap-1.5">
                 <span className="font-semibold tracking-tight" style={{ fontFamily: 'IBM Plex Sans, sans-serif', color: 'var(--color-accent-orange)', fontSize: '0.9375rem' }}>dbt</span>
@@ -32,9 +50,9 @@ export default function Header() {
                 {t('header.tagline')}
               </span>
             </div>
-            <div className="w-px h-4 ml-1" style={{ background: 'var(--color-border)' }} />
-          </>
-        )}
+          )}
+        </button>
+        {!isMobile && <div className="w-px h-4" style={{ background: 'var(--color-border)', flexShrink: 0 }} />}
         <LessonSelector compact={isMobile} />
       </div>
 
