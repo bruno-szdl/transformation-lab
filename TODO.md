@@ -1,4 +1,4 @@
-# dbt-quest - TODO
+# Analytics Engineering Quest - TODO
 
 Public-facing punch list. Everything from the original (2026-04-26) review has shipped — see git history.
 

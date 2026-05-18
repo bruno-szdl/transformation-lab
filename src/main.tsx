@@ -7,7 +7,7 @@ import ErrorBoundary from './components/ErrorBoundary.tsx'
 import { safeStorage } from './store/safeStorage.ts'
 
 // Apply saved theme before first render to prevent flash
-const saved = safeStorage.getItem('dbt-quest-theme')
+const saved = safeStorage.getItem('ae-quest-theme') ?? safeStorage.getItem('dbt-quest-theme')
 const prefersDark = !window.matchMedia('(prefers-color-scheme: light)').matches
 const theme = saved ?? (prefersDark ? 'dark' : 'light')
 if (theme === 'light') document.documentElement.dataset.theme = 'light'

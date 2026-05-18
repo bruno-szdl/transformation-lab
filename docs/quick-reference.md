@@ -1,4 +1,4 @@
-# Quick Reference for dbt Quest
+# Quick Reference for Analytics Engineering Quest
 
 Fast lookup for common tasks and questions.
 
@@ -156,7 +156,7 @@ Never hardcode hex codes. Update CSS vars to change theme across the whole app.
 
 **Check state**: In browser console:
 ```js
-dbtQuest = (window as any).__ZUSTAND_DEVTOOLS_CONTEXT__.store.getState()
+aeQuest = (window as any).__ZUSTAND_DEVTOOLS_CONTEXT__.store.getState()
 ```
 
 **Inspect a lesson**: `src/lessons/lessonNN.ts`
@@ -172,8 +172,8 @@ dbtQuest = (window as any).__ZUSTAND_DEVTOOLS_CONTEXT__.store.getState()
 - [ ] Verify mobile layout
 - [ ] Test light/dark theme toggle
 - [ ] Check language selector (en/pt/es)
-- [ ] Verify robots.txt is served: https://dbtquest.com/robots.txt
-- [ ] Verify sitemap.xml is served: https://dbtquest.com/sitemap.xml
+- [ ] Verify robots.txt is served: https://analyticsengineering.quest/robots.txt
+- [ ] Verify sitemap.xml is served: https://analyticsengineering.quest/sitemap.xml
 - [ ] Test og:image preview: https://www.opengraph.xyz/
 - [ ] Deploy to Vercel: vercel deploy --prod
 - [ ] Submit sitemap to Google Search Console

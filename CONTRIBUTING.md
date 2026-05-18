@@ -1,4 +1,4 @@
-# Contributing to dbt Quest
+# Contributing to Analytics Engineering Quest
 
 Thanks for considering a contribution! This project is small, opinionated, and runs entirely in the browser. Most contributions will land in one of three places: a new **lesson**, a new **concept**, or a new **engine validator**. This guide walks through each.
 
@@ -43,7 +43,7 @@ src/
 
 ## Curriculum structure
 
-dbt Quest is 15 lessons (IDs 0–14):
+Analytics Engineering Quest is 15 lessons (IDs 0–14):
 - **Lesson 0**: Introduction (full-width landing page, no workspace)
 - **Lessons 1–14**: Hands-on dbt tutorials (editor + console + context panels)
 

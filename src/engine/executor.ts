@@ -149,7 +149,7 @@ export async function materializeModels(models: CompiledModel[]): Promise<ModelO
       // Try both and swallow the type-mismatch error.
       try { await exec(`DROP VIEW IF EXISTS "${m.name}" CASCADE`) } catch { /* not a view */ }
       try { await exec(`DROP TABLE IF EXISTS "${m.name}" CASCADE`) } catch { /* not a table */ }
-      // Incremental is simulated as a full table rebuild in dbt-quest.
+      // Incremental is simulated as a full table rebuild in ae-quest.
       const keyword = m.materialization === 'table' || m.materialization === 'incremental' ? 'TABLE' : 'VIEW'
       await exec(`CREATE ${keyword} "${m.name}" AS ${m.sql}`)
       const preview = await runQuery(`SELECT * FROM "${m.name}" LIMIT 0`)

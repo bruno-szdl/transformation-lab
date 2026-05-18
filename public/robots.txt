@@ -1,4 +1,4 @@
-# dbt quest robots.txt
+# Analytics Engineering Quest robots.txt
 # Allow all crawlers to index the site
 
 User-agent: *
@@ -12,7 +12,7 @@ User-agent: Twitterbot
 Disallow: /
 
 # Sitemap location
-Sitemap: https://dbtquest.com/sitemap.xml
+Sitemap: https://analyticsengineering.quest/sitemap.xml
 
 # Crawl delay (milliseconds between requests)
 Crawl-delay: 1

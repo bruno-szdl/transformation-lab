@@ -42,9 +42,9 @@ export default function Header() {
           <DbtLogo />
           {!isMobile && (
             <div className="flex flex-col justify-center" style={{ gap: '1px' }}>
-              <div className="flex items-center gap-1.5">
-                <span className="font-semibold tracking-tight" style={{ fontFamily: 'IBM Plex Sans, sans-serif', color: 'var(--color-accent-orange)', fontSize: '0.9375rem' }}>dbt</span>
-                <span className="font-semibold tracking-tight" style={{ fontFamily: 'IBM Plex Sans, sans-serif', color: 'var(--color-text)', fontSize: '0.9375rem' }}>quest</span>
+              <div className="flex items-center" style={{ gap: '1px' }}>
+                <span className="font-semibold tracking-tight" style={{ fontFamily: 'IBM Plex Sans, sans-serif', color: 'var(--color-accent-orange)', fontSize: '0.9375rem' }}>AE</span>
+                <span className="font-semibold tracking-tight" style={{ fontFamily: 'IBM Plex Sans, sans-serif', color: 'var(--color-text)', fontSize: '0.9375rem' }}>Quest</span>
               </div>
               <span style={{ fontFamily: 'IBM Plex Sans, sans-serif', color: 'var(--color-muted)', fontSize: '0.625rem', lineHeight: 1 }}>
                 {t('header.tagline')}
@@ -61,7 +61,7 @@ export default function Header() {
         <LangToggleButton />
         <ThemeToggleButton />
         <ExternalIconLink
-          href="https://github.com/bruno-szdl/dbt-quest"
+          href="https://github.com/bruno-szdl/analytics-engineering-quest"
           label={t('header.githubLabel')}
         >
           <GitHubIcon />
@@ -366,7 +366,7 @@ function LangToggleButton() {
 
   const choose = (code: string) => {
     void i18n.changeLanguage(code)
-    localStorage.setItem('dbt-quest-lang', code)
+    localStorage.setItem('ae-quest-lang', code)
     setOpen(false)
   }
 

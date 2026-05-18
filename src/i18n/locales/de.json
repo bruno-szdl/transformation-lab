@@ -53,7 +53,7 @@
     "restart": "Kurs neu starten",
     "restartConfirm": "Den Kurs von Lektion 1 neu starten? Dein Fortschritt wird gelöscht.",
     "welcomeLead": "Willkommen bei ",
-    "welcomeProduct": "dbt-quest",
+    "welcomeProduct": "Analytics Engineering Quest",
     "welcomeMid": ", einer Reihe kurzer, interaktiver Lektionen, die dir helfen, ",
     "welcomeDbt": "dbt",
     "welcomeTail": " direkt im Browser zu lernen, inspiriert von ",
@@ -119,7 +119,7 @@
   },
   "courseComplete": {
     "eyebrow": "Kurs abgeschlossen",
-    "title": "Du hast dbt-quest geschafft 🎉",
+    "title": "Du hast Analytics Engineering Quest geschafft 🎉",
     "body": "Du kannst jetzt jedes echte dbt-Projekt lesen: Sources, Models, Refs, Materializations, Seeds, Tests, Docs, Selektoren, `dbt build`. Das ist das Werkzeug-Set.",
     "whatNext": "Was als Nächstes",
     "step1Lead": "Installiere dbt lokal: ",
@@ -141,7 +141,7 @@
     "header": "terminal",
     "emptyHintLead": "tippe unten einen dbt-Befehl - probiere ",
     "emptyHintCmd": "dbt run",
-    "inputAria": "dbt-quest Terminal-Eingabe"
+    "inputAria": "ae-quest Terminal-Eingabe"
   },
   "results": {
     "header": "Vorschau",
@@ -186,7 +186,7 @@
   },
   "errorBoundary": {
     "eyebrow": "Etwas ist kaputtgegangen",
-    "title": "dbt-quest ist auf einen unerwarteten Fehler gestoßen",
+    "title": "Analytics Engineering Quest ist auf einen unerwarteten Fehler gestoßen",
     "body": "Versuche, die Seite neu zu laden. Wenn das Problem bestehen bleibt, kannst du deinen gespeicherten Fortschritt zurücksetzen — das löscht abgeschlossene Lektionen und freigeschaltete Panels, sollte aber die App wiederherstellen.",
     "reload": "Seite neu laden",
     "reset": "Fortschritt zurücksetzen und neu laden"
@@ -196,7 +196,7 @@
     "lastUpdated": "Zuletzt aktualisiert:",
     "introduction": {
       "heading": "1. Einleitung",
-      "p1": "Willkommen bei dbt quest. Wir respektieren deine Privatsphäre und verpflichten uns, transparent damit umzugehen, wie wir Informationen über dich erfassen und nutzen.",
+      "p1": "Willkommen bei Analytics Engineering Quest. Wir respektieren deine Privatsphäre und verpflichten uns, transparent damit umzugehen, wie wir Informationen über dich erfassen und nutzen.",
       "p2": "Diese Datenschutzerklärung beschreibt, wie wir deine Daten erfassen, nutzen und schützen, wenn du unsere Website verwendest."
     },
     "dataCollection": {

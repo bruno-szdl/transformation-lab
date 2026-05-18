@@ -21,7 +21,7 @@ function detectBrowserLang(): Supported {
   return 'en'
 }
 
-const saved = localStorage.getItem('dbt-quest-lang')
+const saved = localStorage.getItem('ae-quest-lang') ?? localStorage.getItem('dbt-quest-lang')
 const initial = (SUPPORTED as readonly string[]).includes(saved ?? '')
   ? (saved as Supported)
   : detectBrowserLang()

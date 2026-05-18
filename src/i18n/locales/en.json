@@ -53,7 +53,7 @@
     "restart": "Restart course",
     "restartConfirm": "Start the course over from Lesson 1? Your task progress will be cleared.",
     "welcomeLead": "Welcome to ",
-    "welcomeProduct": "dbt-quest",
+    "welcomeProduct": "Analytics Engineering Quest",
     "welcomeMid": ", a series of short, interactive lessons designed to help you learn ",
     "welcomeDbt": "dbt",
     "welcomeTail": " right in your browser, inspired by ",
@@ -119,7 +119,7 @@
   },
   "courseComplete": {
     "eyebrow": "Course complete",
-    "title": "You finished dbt-quest 🎉",
+    "title": "You finished Analytics Engineering Quest 🎉",
     "body": "You can read any real dbt project now: sources, models, refs, materializations, seeds, tests, docs, selectors, `dbt build`. That's the toolkit.",
     "whatNext": "What to do next",
     "step1Lead": "Install dbt locally: ",
@@ -141,7 +141,7 @@
     "header": "terminal",
     "emptyHintLead": "type a dbt command below - try ",
     "emptyHintCmd": "dbt run",
-    "inputAria": "dbt-quest terminal input"
+    "inputAria": "ae-quest terminal input"
   },
   "results": {
     "header": "preview",
@@ -186,7 +186,7 @@
   },
   "errorBoundary": {
     "eyebrow": "Something broke",
-    "title": "dbt-quest hit an unexpected error",
+    "title": "Analytics Engineering Quest hit an unexpected error",
     "body": "Try reloading the page. If the problem persists, you can reset your saved progress — this will clear completed lessons and unlocked panels, but should recover the app.",
     "reload": "Reload page",
     "reset": "Reset progress & reload"
@@ -196,7 +196,7 @@
     "lastUpdated": "Last updated:",
     "introduction": {
       "heading": "1. Introduction",
-      "p1": "Welcome to dbt quest. We respect your privacy and are committed to being transparent about how we collect and use information about you.",
+      "p1": "Welcome to Analytics Engineering Quest. We respect your privacy and are committed to being transparent about how we collect and use information about you.",
       "p2": "This Privacy Policy describes how we collect, use, and protect your data when you use our website."
     },
     "dataCollection": {

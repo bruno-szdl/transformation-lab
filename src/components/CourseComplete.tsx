@@ -22,7 +22,7 @@ export default function CourseComplete() {
   })
 
   const loadLesson = useGameStore((s) => s.loadLesson)
-  const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://dbtquest.com')}`
+  const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://analyticsengineering.quest')}`
 
   return (
     <div

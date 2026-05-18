@@ -53,7 +53,7 @@
     "restart": "Reiniciar el curso",
     "restartConfirm": "¿Volver a empezar el curso desde la Lección 1? Se borrará tu progreso.",
     "welcomeLead": "Bienvenido a ",
-    "welcomeProduct": "dbt-quest",
+    "welcomeProduct": "Analytics Engineering Quest",
     "welcomeMid": ", una serie de lecciones cortas e interactivas pensadas para ayudarte a aprender ",
     "welcomeDbt": "dbt",
     "welcomeTail": " directamente en el navegador, inspirada en ",
@@ -119,7 +119,7 @@
   },
   "courseComplete": {
     "eyebrow": "Curso completado",
-    "title": "¡Terminaste dbt-quest! 🎉",
+    "title": "¡Terminaste Analytics Engineering Quest! 🎉",
     "body": "Ya puedes leer cualquier proyecto dbt real: sources, models, refs, materializations, seeds, tests, docs, selectores, `dbt build`. Ese es el kit de herramientas.",
     "whatNext": "Qué hacer ahora",
     "step1Lead": "Instala dbt localmente: ",
@@ -141,7 +141,7 @@
     "header": "terminal",
     "emptyHintLead": "escribe un comando dbt abajo - prueba ",
     "emptyHintCmd": "dbt run",
-    "inputAria": "entrada de terminal dbt-quest"
+    "inputAria": "entrada de terminal ae-quest"
   },
   "results": {
     "header": "vista previa",
@@ -186,7 +186,7 @@
   },
   "errorBoundary": {
     "eyebrow": "Algo se rompió",
-    "title": "dbt-quest encontró un error inesperado",
+    "title": "Analytics Engineering Quest encontró un error inesperado",
     "body": "Prueba recargar la página. Si el problema persiste, puedes resetear tu progreso guardado — esto borrará las lecciones completadas y los paneles desbloqueados, pero debería recuperar la app.",
     "reload": "Recargar página",
     "reset": "Resetear progreso y recargar"
@@ -196,7 +196,7 @@
     "lastUpdated": "Última actualización:",
     "introduction": {
       "heading": "1. Introducción",
-      "p1": "Bienvenido a dbt quest. Respetamos tu privacidad y nos comprometemos a ser transparentes sobre cómo recopilamos y usamos información sobre ti.",
+      "p1": "Bienvenido a Analytics Engineering Quest. Respetamos tu privacidad y nos comprometemos a ser transparentes sobre cómo recopilamos y usamos información sobre ti.",
       "p2": "Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos tus datos cuando utilizas nuestro sitio web."
     },
     "dataCollection": {

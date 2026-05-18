@@ -18,7 +18,7 @@ export default class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error('dbt-quest crashed:', error, info)
+    console.error('ae-quest crashed:', error, info)
   }
 
   handleReload = () => {
@@ -26,9 +26,16 @@ export default class ErrorBoundary extends Component<Props, State> {
   }
 
   handleReset = () => {
-    safeStorage.removeItem('dbt-quest-store') // legacy key, harmless if absent
+    safeStorage.removeItem('ae-quest-progress')
+    safeStorage.removeItem('ae-quest-seen-panels')
+    safeStorage.removeItem('ae-quest-lang')
+    safeStorage.removeItem('ae-quest-theme')
+    // legacy keys from dbt-quest rebrand, harmless if absent
+    safeStorage.removeItem('dbt-quest-store')
     safeStorage.removeItem('dbt-quest-progress')
     safeStorage.removeItem('dbt-quest-seen-panels')
+    safeStorage.removeItem('dbt-quest-lang')
+    safeStorage.removeItem('dbt-quest-theme')
     window.location.reload()
   }
 

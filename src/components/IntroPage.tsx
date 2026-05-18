@@ -30,28 +30,28 @@ export default function IntroPage() {
           textAlign: 'center' as const,
         }}
       >
-        <div style={{ display: 'inline-flex', alignItems: 'baseline', gap: '6px', marginBottom: '12px' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'baseline', gap: '10px', marginBottom: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span
             style={{
               fontFamily: 'IBM Plex Sans, sans-serif',
-              fontSize: '2.5rem',
+              fontSize: '2rem',
               fontWeight: 700,
               color: 'var(--color-accent-orange)',
               letterSpacing: '-0.02em',
             }}
           >
-            dbt
+            Analytics Engineering
           </span>
           <span
             style={{
               fontFamily: 'IBM Plex Sans, sans-serif',
-              fontSize: '2.5rem',
+              fontSize: '2rem',
               fontWeight: 700,
               color: 'var(--color-text)',
               letterSpacing: '-0.02em',
             }}
           >
-            quest
+            Quest
           </span>
         </div>
         <p
@@ -92,6 +92,7 @@ export default function IntroPage() {
               onClick={() => {
                 if (window.confirm(t('intro.restartConfirm'))) {
                   try {
+                    localStorage.removeItem('ae-quest-progress')
                     localStorage.removeItem('dbt-quest-progress')
                   } catch { /* ignore */ }
                   window.location.reload()
@@ -214,7 +215,7 @@ function Footer() {
       <div>
         {t('intro.footer.builtBy')}
         {' · '}
-        <FooterLink href="https://github.com/bruno-szdl/dbt-quest">GitHub</FooterLink>
+        <FooterLink href="https://github.com/bruno-szdl/analytics-engineering-quest">GitHub</FooterLink>
         {' · '}
         <FooterLink href="https://www.linkedin.com/in/brunoszdl">LinkedIn</FooterLink>
         {' · '}

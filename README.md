@@ -1,4 +1,4 @@
-# dbt Quest
+# Analytics Engineering Quest
 
 An interactive browser-based game that teaches [dbt](https://www.getdbt.com/) through progressive levels — inspired by [Learn Git Branching](https://learngitbranching.js.org/).
 
@@ -15,9 +15,9 @@ Each level presents a target DAG that you need to reach by editing dbt files and
 
 ## What you'll learn
 
-dbt Quest is a focused on-ramp, not a complete reference. Here's what's in scope vs. what's intentionally left to the real dbt:
+Analytics Engineering Quest is a focused on-ramp, not a complete reference. Here's what's in scope vs. what's intentionally left to the real dbt:
 
-| Concept | dbt Quest | Real dbt |
+| Concept | AE Quest | Real dbt |
 |---|---|---|
 | `ref()`, `source()`, lineage | ✅ Hands-on | ✅ |
 | Materializations: view, table | ✅ | ✅ |
@@ -40,7 +40,7 @@ dbt Quest is a focused on-ramp, not a complete reference. Here's what's in scope
 | Hooks (`on-run-start`, `pre-hook`, `post-hook`) | — | ✅ |
 | Profile / `dbt_project.yml` configuration | - | ✅ |
 
-After finishing dbt Quest you'll be ready to set up a real dbt project against DuckDB / Postgres / BigQuery / Snowflake and explore the larger ecosystem.
+After finishing Analytics Engineering Quest you'll be ready to set up a real dbt project against DuckDB / Postgres / BigQuery / Snowflake and explore the larger ecosystem.
 
 ## Tech Stack
 
@@ -53,7 +53,7 @@ After finishing dbt Quest you'll be ready to set up a real dbt project against D
 
 ## Play Online
 
-dbt Quest is live at [dbtquest.com](https://dbtquest.com). Start with Lesson 0 and progress through 15 lessons.
+Analytics Engineering Quest is live at [analyticsengineering.quest](https://analyticsengineering.quest). Start with Lesson 0 and progress through 15 lessons.
 
 ## Deployment
 

@@ -15,7 +15,7 @@ There are no automated tests — task completion is validated via `validate()` f
 
 ## Architecture
 
-**dbt-quest** is a browser-based interactive tool for learning dbt, inspired by SQLBolt. It runs entirely in-browser with no backend: SQL executes in DuckDB WASM, the editor is Monaco, and the DAG is rendered with React Flow.
+**Analytics Engineering Quest** (`ae-quest`) is a browser-based interactive tool for learning dbt, inspired by SQLBolt. It runs entirely in-browser with no backend: SQL executes in DuckDB WASM, the editor is Monaco, and the DAG is rendered with React Flow.
 
 It is a course of **15 lessons** (lesson 0 is the intro page, lessons 1–14 teach core dbt concepts). Each lesson teaches one concept, then gives the learner 3–5 hands-on **tasks** that share a single workspace, plus an optional end-of-lesson quiz.
 

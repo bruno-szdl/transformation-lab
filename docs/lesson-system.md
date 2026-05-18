@@ -1,6 +1,6 @@
 # Lesson system architecture
 
-How the dbt-quest curriculum is structured in code.
+How the Analytics Engineering Quest curriculum is structured in code.
 
 ## Curriculum overview
 

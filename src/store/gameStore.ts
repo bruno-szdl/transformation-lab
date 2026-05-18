@@ -24,8 +24,9 @@ export type { TerminalLine }
 
 let checkTasksTimer: ReturnType<typeof setTimeout> | null = null
 
-const SEEN_PANELS_KEY = 'dbt-quest-seen-panels'
-const PROGRESS_KEY = 'dbt-quest-progress'
+const SEEN_PANELS_KEY = 'ae-quest-seen-panels'
+const PROGRESS_KEY = 'ae-quest-progress'
+const THEME_KEY = 'ae-quest-theme'
 
 function loadSeenPanels(): Set<PanelKey> {
   const raw = safeStorage.getItem(SEEN_PANELS_KEY)
@@ -160,7 +161,7 @@ export const useGameStore = create<StoreState>()(
       snapshotRunCounts: {},
       snapshotClosedRows: {},
       openedFiles: new Set<string>(),
-      terminalHistory: [{ text: 'dbt-quest — loading...', color: 'gray' }],
+      terminalHistory: [{ text: 'ae-quest — loading...', color: 'gray' }],
       running: false,
       lastPreview: null,
       lastRun: null,
@@ -177,12 +178,12 @@ export const useGameStore = create<StoreState>()(
       seenPanels: loadSeenPanels(),
       newlyRevealedPanels: new Set<PanelKey>(),
 
-      theme: (safeStorage.getItem('dbt-quest-theme') as 'dark' | 'light') ?? 'light',
+      theme: (safeStorage.getItem(THEME_KEY) as 'dark' | 'light') ?? 'light',
 
       toggleTheme: () => {
         const next = get().theme === 'dark' ? 'light' : 'dark'
         document.documentElement.dataset.theme = next === 'light' ? 'light' : ''
-        safeStorage.setItem('dbt-quest-theme', next)
+        safeStorage.setItem(THEME_KEY, next)
         set({ theme: next })
       },
 
@@ -266,7 +267,7 @@ export const useGameStore = create<StoreState>()(
       runCommand: async (input: string) => {
         if (get().running) return
 
-        const cmdLine: TerminalLine = { text: `dbt-quest ❯ ${input}` }
+        const cmdLine: TerminalLine = { text: `ae-quest ❯ ${input}` }
         const parsed = parseCommand(input)
 
         if (!parsed.ok) {
@@ -360,7 +361,7 @@ export const useGameStore = create<StoreState>()(
         set((s) => ({
           running: true,
           bottomTab: 'results',
-          terminalHistory: [...s.terminalHistory, { text: `dbt-quest ❯ dbt show --select ${name}` }],
+          terminalHistory: [...s.terminalHistory, { text: `ae-quest ❯ dbt show --select ${name}` }],
         }))
         try {
           if (!get().ranModels.has(name)) {

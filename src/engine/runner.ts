@@ -280,7 +280,7 @@ export async function execute(
   }
 
   lines.push({ text: '' })
-  lines.push({ text: 'Running with dbt-quest (DuckDB-Wasm)', color: 'gray' })
+  lines.push({ text: 'Running with ae-quest (DuckDB-Wasm)', color: 'gray' })
 
   if (command.type === 'snapshot') {
     const snapshots = collectSnapshots(state.files)
@@ -457,7 +457,7 @@ export async function execute(
     } else {
       if (selected.some((m) => m.materialization === 'incremental')) {
         lines.push({
-          text: '(dbt-quest simulates incremental models as full rebuilds.)',
+          text: '(ae-quest simulates incremental models as full rebuilds.)',
           color: 'gray',
         })
       }
@@ -633,7 +633,7 @@ export async function execute(
       const outcomes = await materializeModels(selected)
       if (outcomes.some((o) => o.materialization === 'incremental')) {
         lines.push({
-          text: '(dbt-quest simulates incremental models as full rebuilds.)',
+          text: '(ae-quest simulates incremental models as full rebuilds.)',
           color: 'gray',
         })
       }

@@ -1,4 +1,4 @@
-# SEO & Metadata Setup for dbt Quest
+# SEO & Metadata Setup for Analytics Engineering Quest
 
 This document explains the SEO infrastructure and how to maintain it.
 
@@ -8,21 +8,21 @@ This document explains the SEO infrastructure and how to maintain it.
 
 The main HTML file includes:
 
-- **Title**: "dbt quest — Interactive browser game for learning dbt"
-- **Description**: Concise summary of what dbt Quest is
+- **Title**: "Learn dbt Free — Interactive Tutorial & Hands-On Lessons"
+- **Description**: Concise summary of what Analytics Engineering Quest is
 - **Keywords**: `dbt, data, SQL, analytics, tutorial, learning, interactive, game, data engineering`
-- **Canonical URL**: `https://dbtquest.com/`
+- **Canonical URL**: `https://analyticsengineering.quest/`
 - **Author**: Bruno Szdl
 
 ### 2. Open Graph Tags (Social Sharing)
 
 When you share the site on Twitter, LinkedIn, Facebook, Slack, etc., these tags control how it appears:
 
-- **og:title**: "dbt quest — Learn dbt interactively"
+- **og:title**: "Learn dbt Free: 15 Interactive Lessons"
 - **og:description**: Brief description for social preview
 - **og:image**: `/og-image.svg` (or `/og-image.png` after conversion)
 - **og:type**: `website`
-- **og:url**: `https://dbtquest.com`
+- **og:url**: `https://analyticsengineering.quest`
 
 **How to test**: Use [Open Graph Debugger](https://www.opengraph.xyz/) or Twitter's [Card Validator](https://cards-dev.twitter.com/validator).
 
@@ -68,9 +68,9 @@ In `<head>`, there's a JSON-LD block defining the site as an `EducationalWebAppl
 {
   "@context": "https://schema.org",
   "@type": "EducationalWebApplication",
-  "name": "dbt quest",
+  "name": "Analytics Engineering Quest",
   "description": "...",
-  "url": "https://dbtquest.com",
+  "url": "https://analyticsengineering.quest",
   "inLanguage": ["en", "pt", "es"],
   "creator": { "@type": "Person", "name": "Bruno Szdl" }
 }
@@ -141,11 +141,11 @@ Cons:
 
 3. **Update `index.html`**:
    ```html
-   <meta property="og:image" content="https://dbtquest.com/og-image.png" />
+   <meta property="og:image" content="https://analyticsengineering.quest/og-image.png" />
    ```
 
 4. **Test the result**:
-   - Use [Open Graph Debugger](https://www.opengraph.xyz/?url=https://dbtquest.com)
+   - Use [Open Graph Debugger](https://www.opengraph.xyz/?url=https://analyticsengineering.quest)
    - Share the link on Twitter / LinkedIn
    - Verify the preview shows the correct image
 
@@ -162,7 +162,7 @@ Monitor indexing in Google Search Console:
 
 ### Search Rankings
 
-Expected keywords for dbt Quest:
+Expected keywords for Analytics Engineering Quest:
 - "learn dbt"
 - "dbt tutorial"
 - "dbt learning"
@@ -200,7 +200,7 @@ After publishing changes to:
 ```xml
 <!-- After updating Lesson 5 on 2026-06-01: -->
 <url>
-  <loc>https://dbtquest.com/#/lesson/5</loc>
+  <loc>https://analyticsengineering.quest/#/lesson/5</loc>
   <lastmod>2026-06-01</lastmod>
   <!-- ... -->
 </url>
@@ -231,10 +231,10 @@ Keep it under 300 characters.
 - [ ] Convert og-image.svg to PNG (or keep as SVG)
 - [ ] Update `index.html` if you changed the og-image filename
 - [ ] Set `VITE_CF_ANALYTICS_TOKEN` in Vercel env vars (optional)
-- [ ] Test social preview with [OG Debugger](https://www.opengraph.xyz/?url=https://dbtquest.com)
-- [ ] Verify robots.txt is accessible: `https://dbtquest.com/robots.txt`
-- [ ] Verify sitemap.xml is accessible: `https://dbtquest.com/sitemap.xml`
-- [ ] Verify og-image is accessible: `https://dbtquest.com/og-image.png` (or .svg)
+- [ ] Test social preview with [OG Debugger](https://www.opengraph.xyz/?url=https://analyticsengineering.quest)
+- [ ] Verify robots.txt is accessible: `https://analyticsengineering.quest/robots.txt`
+- [ ] Verify sitemap.xml is accessible: `https://analyticsengineering.quest/sitemap.xml`
+- [ ] Verify og-image is accessible: `https://analyticsengineering.quest/og-image.png` (or .svg)
 - [ ] Submit sitemap to [Google Search Console](https://search.google.com/search-console)
 - [ ] Monitor coverage and performance in Search Console
 

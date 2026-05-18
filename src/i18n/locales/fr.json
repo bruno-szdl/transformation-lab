@@ -53,7 +53,7 @@
     "restart": "Recommencer le cours",
     "restartConfirm": "Recommencer le cours depuis la Leçon 1 ? Votre progression sera effacée.",
     "welcomeLead": "Bienvenue sur ",
-    "welcomeProduct": "dbt-quest",
+    "welcomeProduct": "Analytics Engineering Quest",
     "welcomeMid": ", une série de leçons courtes et interactives conçues pour vous aider à apprendre ",
     "welcomeDbt": "dbt",
     "welcomeTail": " directement dans votre navigateur, inspirée par ",
@@ -119,7 +119,7 @@
   },
   "courseComplete": {
     "eyebrow": "Cours terminé",
-    "title": "Vous avez fini dbt-quest 🎉",
+    "title": "Vous avez fini Analytics Engineering Quest 🎉",
     "body": "Vous pouvez maintenant lire n'importe quel projet dbt réel : sources, models, refs, materializations, seeds, tests, docs, sélecteurs, `dbt build`. Voilà la boîte à outils.",
     "whatNext": "Et maintenant ?",
     "step1Lead": "Installez dbt en local : ",
@@ -141,7 +141,7 @@
     "header": "terminal",
     "emptyHintLead": "tapez une commande dbt ci-dessous - essayez ",
     "emptyHintCmd": "dbt run",
-    "inputAria": "saisie du terminal dbt-quest"
+    "inputAria": "saisie du terminal ae-quest"
   },
   "results": {
     "header": "aperçu",
@@ -186,7 +186,7 @@
   },
   "errorBoundary": {
     "eyebrow": "Quelque chose a planté",
-    "title": "dbt-quest a rencontré une erreur inattendue",
+    "title": "Analytics Engineering Quest a rencontré une erreur inattendue",
     "body": "Essayez de recharger la page. Si le problème persiste, vous pouvez réinitialiser votre progression sauvegardée — cela effacera les leçons terminées et les panneaux débloqués, mais devrait rétablir l'application.",
     "reload": "Recharger la page",
     "reset": "Réinitialiser la progression et recharger"
@@ -196,7 +196,7 @@
     "lastUpdated": "Dernière mise à jour :",
     "introduction": {
       "heading": "1. Introduction",
-      "p1": "Bienvenue sur dbt quest. Nous respectons votre vie privée et nous engageons à être transparents sur la manière dont nous collectons et utilisons vos informations.",
+      "p1": "Bienvenue sur Analytics Engineering Quest. Nous respectons votre vie privée et nous engageons à être transparents sur la manière dont nous collectons et utilisons vos informations.",
       "p2": "Cette Politique de confidentialité décrit comment nous collectons, utilisons et protégeons vos données lorsque vous utilisez notre site."
     },
     "dataCollection": {

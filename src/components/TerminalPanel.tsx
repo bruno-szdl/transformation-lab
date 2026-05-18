@@ -197,7 +197,7 @@ export default function TerminalPanel({ embedded = false, mobileMode = false, au
             fontWeight: 600,
           }}
         >
-          dbt-quest&nbsp;❯&nbsp;
+          ae-quest&nbsp;❯&nbsp;
         </span>
         <input
           ref={inputRef}
