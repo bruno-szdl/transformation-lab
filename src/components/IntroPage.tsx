@@ -225,7 +225,7 @@ function Footer() {
         {' · '}
         <FooterLink href="https://www.linkedin.com/in/brunoszdl">LinkedIn</FooterLink>
         {' · '}
-        <FooterLink href="#/privacy">Privacy</FooterLink>
+        <InternalLink href="/privacy">Privacy</InternalLink>
       </div>
       <div style={{ marginTop: '6px', fontSize: '0.75rem' }}>
         {t('intro.footer.tag')}
@@ -237,6 +237,22 @@ function Footer() {
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className="text-link">
+      {children}
+    </a>
+  )
+}
+
+function InternalLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      className="text-link"
+      onClick={(e) => {
+        e.preventDefault()
+        window.history.pushState(null, '', href)
+        window.dispatchEvent(new PopStateEvent('popstate'))
+      }}
+    >
       {children}
     </a>
   )

@@ -7,17 +7,37 @@ import { useGameStore } from './store/gameStore'
 import { useIsMobile } from './hooks/useIsMobile'
 import MobileLayout from './components/MobileLayout'
 
-function parseLessonHash(): number | null {
-  const m = window.location.hash.match(/^#\/lesson\/(\d+)$/)
-  if (!m) return null
-  const n = Number(m[1])
-  return Number.isFinite(n) ? n : null
+type ParsedRoute = { kind: 'lesson'; lessonId: number | null } | { kind: 'privacy' }
+
+function parsePathname(pathname: string): ParsedRoute {
+  if (pathname.startsWith('/privacy')) return { kind: 'privacy' }
+  const m = pathname.match(/^\/lesson\/(\d+)\/?$/)
+  if (m) {
+    const n = Number(m[1])
+    return { kind: 'lesson', lessonId: Number.isFinite(n) ? n : null }
+  }
+  return { kind: 'lesson', lessonId: null }
 }
 
-function getCurrentRoute(): 'lesson' | 'privacy' {
+/**
+ * Migrate legacy hash URLs (`#/lesson/3`, `#/privacy`) to clean paths so old
+ * links keep working. Runs once at startup, rewrites history in-place.
+ * Returns the resulting pathname so the caller can use it directly.
+ */
+function migrateLegacyHashOnce(): string {
   const hash = window.location.hash
-  if (hash.startsWith('#/privacy')) return 'privacy'
-  return 'lesson'
+  if (!hash) return window.location.pathname
+  const lessonMatch = hash.match(/^#\/lesson\/(\d+)$/)
+  if (lessonMatch) {
+    const target = `/lesson/${lessonMatch[1]}`
+    window.history.replaceState(null, '', target)
+    return target
+  }
+  if (hash.startsWith('#/privacy')) {
+    window.history.replaceState(null, '', '/privacy')
+    return '/privacy'
+  }
+  return window.location.pathname
 }
 
 export default function App() {
@@ -26,7 +46,10 @@ export default function App() {
   const theme = useGameStore((s) => s.theme)
   const initializedRef = useRef(false)
   const isMobile = useIsMobile()
-  const [route, setRoute] = useState<'lesson' | 'privacy'>(getCurrentRoute())
+  // `pathname` is the single source of truth for routing. It is updated by:
+  //   1. popstate (browser back/forward, or a manual dispatchEvent('popstate'))
+  //   2. the currentLessonId effect, which mirrors store → URL → state.
+  const [pathname, setPathname] = useState(() => migrateLegacyHashOnce())
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme === 'light' ? 'light' : ''
@@ -35,39 +58,55 @@ export default function App() {
   useEffect(() => {
     if (initializedRef.current) return
     initializedRef.current = true
-    const fromHash = parseLessonHash()
-    // Resume order: explicit hash → persisted lesson → intro (0). The store
+    const parsed = parsePathname(pathname)
+    // Resume order: explicit URL → persisted lesson → intro (0). The store
     // restores `currentLessonId` from localStorage in its initializer, so
-    // returning learners land on the last lesson they had open.
-    const resumeId = fromHash ?? useGameStore.getState().currentLessonId ?? 0
+    // returning learners land on the last lesson they had open if they hit `/`.
+    const isRoot = pathname === '/'
+    const resumeId =
+      parsed.kind === 'lesson'
+        ? parsed.lessonId ?? (isRoot ? useGameStore.getState().currentLessonId ?? 0 : 0)
+        : 0
     loadLesson(resumeId).catch((err) => {
       console.error('Failed to initialise lesson on startup:', err)
     })
-  }, [loadLesson])
+  }, [loadLesson, pathname])
 
   useEffect(() => {
     if (!initializedRef.current) return
-    const target = `#/lesson/${currentLessonId}`
-    if (window.location.hash !== target) {
+    // Mirror the store's lesson into the URL. This also handles "click the
+    // logo while on /privacy" — currentLessonId changes (or stays at 0), and
+    // we switch the URL back to a lesson route. The setPathname below makes
+    // the render react to that, without setState being called by an external
+    // event listener (linting flags setState-inside-effect, but here the
+    // effect is *the* place state must converge with the URL).
+    const target = currentLessonId === 0 ? '/' : `/lesson/${currentLessonId}`
+    if (window.location.pathname !== target) {
       window.history.replaceState(null, '', target)
     }
-  }, [currentLessonId])
+    if (pathname !== target) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setPathname(target)
+    }
+  }, [currentLessonId, pathname])
 
   useEffect(() => {
-    const onHashChange = () => {
-      const currentRoute = getCurrentRoute()
-      setRoute(currentRoute)
-      if (currentRoute === 'lesson') {
-        const id = parseLessonHash()
-        if (id !== null && id !== useGameStore.getState().currentLessonId) {
+    const onPopState = () => {
+      const next = window.location.pathname
+      setPathname(next)
+      const parsed = parsePathname(next)
+      if (parsed.kind === 'lesson') {
+        const id = parsed.lessonId ?? 0
+        if (id !== useGameStore.getState().currentLessonId) {
           loadLesson(id).catch(() => undefined)
         }
       }
     }
-    window.addEventListener('hashchange', onHashChange)
-    return () => window.removeEventListener('hashchange', onHashChange)
+    window.addEventListener('popstate', onPopState)
+    return () => window.removeEventListener('popstate', onPopState)
   }, [loadLesson])
 
+  const route = parsePathname(pathname).kind
   const isIntro = currentLessonId === 0
 
   if (isMobile) {

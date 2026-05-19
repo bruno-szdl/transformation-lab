@@ -21,10 +21,31 @@ function detectBrowserLang(): Supported {
   return 'en'
 }
 
+function langFromQuery(): Supported | null {
+  if (typeof window === 'undefined') return null
+  const param = new URLSearchParams(window.location.search).get('lang')
+  if (!param) return null
+  const base = param.toLowerCase().split('-')[0]
+  return (SUPPORTED as readonly string[]).includes(base) ? (base as Supported) : null
+}
+
+// Lang resolution order: ?lang= query (lets hreflang URLs work for SEO) →
+// localStorage preference → browser language → English fallback.
 const saved = localStorage.getItem('ae-quest-lang') ?? localStorage.getItem('dbt-quest-lang')
-const initial = (SUPPORTED as readonly string[]).includes(saved ?? '')
-  ? (saved as Supported)
-  : detectBrowserLang()
+const initial: Supported =
+  langFromQuery() ??
+  ((SUPPORTED as readonly string[]).includes(saved ?? '')
+    ? (saved as Supported)
+    : detectBrowserLang())
+
+// Keep <html lang="..."> in sync with the active language so SEO and a11y
+// tools see the right locale on the current page.
+if (typeof document !== 'undefined') {
+  document.documentElement.lang = initial
+  i18n.on('languageChanged', (lng) => {
+    document.documentElement.lang = lng
+  })
+}
 
 void i18n.use(initReactI18next).init({
   resources: {

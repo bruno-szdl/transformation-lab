@@ -1,18 +1,27 @@
 # Analytics Engineering Quest robots.txt
-# Allow all crawlers to index the site
+# Allow all crawlers — including social link-preview bots and LLM crawlers —
+# to fetch and index the site.
 
 User-agent: *
 Allow: /
 
-# Disallow social media bots to prevent excessive crawling
-User-agent: facebookexternalhit
-Disallow: /
+# AI / LLM crawlers (explicit allow, so the site can be cited by LLMs)
+User-agent: GPTBot
+Allow: /
 
-User-agent: Twitterbot
-Disallow: /
+User-agent: ClaudeBot
+Allow: /
 
-# Sitemap location
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://analyticsengineering.quest/sitemap.xml
-
-# Crawl delay (milliseconds between requests)
-Crawl-delay: 1

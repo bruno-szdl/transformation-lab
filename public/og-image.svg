@@ -24,7 +24,7 @@
     <text x="80" y="320" font-family="IBM Plex Sans, sans-serif" font-size="32" font-weight="400" fill="#c9d1d9">Learn dbt interactively</text>
 
     <!-- Description -->
-    <text x="80" y="370" font-family="IBM Plex Sans, sans-serif" font-size="22" font-weight="400" fill="#8b949e">15 hands-on lessons • No setup required • Learn in your browser</text>
+    <text x="80" y="370" font-family="IBM Plex Sans, sans-serif" font-size="22" font-weight="400" fill="#8b949e">14 hands-on lessons • No setup required • Learn in your browser</text>
 
     <!-- Feature icons + text -->
     <g>
