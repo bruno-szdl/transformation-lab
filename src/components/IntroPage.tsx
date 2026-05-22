@@ -206,6 +206,8 @@ function DbtRunStep({ children }: { children: React.ReactNode }) {
 
 function Footer() {
   const { t } = useTranslation()
+  const theme = useGameStore((s) => s.theme)
+  const logoSrc = theme === 'light' ? '/brand/logo.svg' : '/brand/logo-light.svg'
   return (
     <footer
       style={{
@@ -218,6 +220,20 @@ function Footer() {
         color: 'var(--color-text-muted)',
       }}
     >
+      <div style={{ marginBottom: '16px' }}>
+        <a
+          href="https://datagym.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', color: 'var(--color-text-muted)', textDecoration: 'none', fontWeight: 600 }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-accent-orange)' }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-text-muted)' }}
+        >
+          <img src={logoSrc} alt="" aria-hidden style={{ height: '14px', width: 'auto' }} />
+          A DataGym.io Lab
+        </a>
+      </div>
+      <div style={{ width: '32px', height: '1px', background: 'var(--color-border-subtle)', margin: '0 auto 16px' }} />
       <div>
         {t('intro.footer.builtBy')}
         {' · '}
