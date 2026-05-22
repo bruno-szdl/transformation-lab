@@ -97,7 +97,7 @@ export default function LessonPanel() {
             {t('lessonPanel.badge', { current: lesson.id, total: getLastLessonId() })}
           </span>
         </div>
-        <h2 style={{ margin: 0, color: 'var(--color-text)', fontSize: '1.125rem', fontFamily: 'IBM Plex Sans, sans-serif', fontWeight: 700, lineHeight: 1.25, letterSpacing: '-0.005em' }}>
+        <h2 style={{ margin: 0, color: 'var(--color-text)', fontSize: '1.125rem', fontFamily: 'var(--font-sans)', fontWeight: 700, lineHeight: 1.25, letterSpacing: '-0.005em' }}>
           {lesson.title}
         </h2>
       </div>
@@ -136,7 +136,7 @@ export default function LessonPanel() {
                 >
                   <CheckBox done={done} index={i + 1} animate={animateNow} />
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ color: 'var(--color-text)', fontSize: '0.875rem', fontFamily: 'IBM Plex Sans, sans-serif', lineHeight: 1.55 }}>
+                    <div style={{ color: 'var(--color-text)', fontSize: '0.875rem', fontFamily: 'var(--font-sans)', lineHeight: 1.55 }}>
                       <Markdownish text={task.prompt} />
                     </div>
                     {task.hint && !done && (
@@ -163,7 +163,7 @@ export default function LessonPanel() {
                               borderRadius: '4px',
                               color: 'var(--color-text-muted)',
                               fontSize: '0.6875rem',
-                              fontFamily: 'IBM Plex Sans, sans-serif',
+                              fontFamily: 'var(--font-sans)',
                               padding: '3px 8px',
                               cursor: 'pointer',
                             }}
@@ -206,7 +206,7 @@ export default function LessonPanel() {
                       gap: '6px',
                       color: 'var(--color-accent-orange)',
                       fontSize: '0.75rem',
-                      fontFamily: 'IBM Plex Sans, sans-serif',
+                      fontFamily: 'var(--font-sans)',
                       textDecoration: 'none',
                       lineHeight: 1.5,
                     }}
@@ -324,7 +324,7 @@ function WorkspaceDiagram() {
             >
               {i + 1}
             </span>
-            <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.8125rem', fontFamily: 'IBM Plex Sans, sans-serif', lineHeight: 1.55 }}>
+            <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.8125rem', fontFamily: 'var(--font-sans)', lineHeight: 1.55 }}>
               <strong style={{ color: 'var(--color-text)' }}>{it.title}.</strong> {it.body}
             </div>
           </li>
@@ -426,7 +426,7 @@ function QuizBlock({
 
   return (
     <div>
-      <div style={{ color: 'var(--color-text)', fontSize: '0.8125rem', fontFamily: 'IBM Plex Sans, sans-serif', lineHeight: 1.5, marginBottom: '10px' }}>
+      <div style={{ color: 'var(--color-text)', fontSize: '0.8125rem', fontFamily: 'var(--font-sans)', lineHeight: 1.5, marginBottom: '10px' }}>
         {renderInline(question)}
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -459,7 +459,7 @@ function QuizBlock({
                 borderRadius: '5px',
                 color: 'var(--color-text)',
                 fontSize: '0.75rem',
-                fontFamily: 'IBM Plex Sans, sans-serif',
+                fontFamily: 'var(--font-sans)',
                 cursor: 'pointer',
               }}
             >
@@ -480,7 +480,7 @@ function QuizBlock({
             borderRadius: '5px',
             color: 'var(--color-text-secondary)',
             fontSize: '0.75rem',
-            fontFamily: 'IBM Plex Sans, sans-serif',
+            fontFamily: 'var(--font-sans)',
             lineHeight: 1.5,
           }}
         >

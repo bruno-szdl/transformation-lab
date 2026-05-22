@@ -33,7 +33,7 @@ export default function IntroPage() {
         <div style={{ display: 'inline-flex', alignItems: 'baseline', gap: '10px', marginBottom: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span
             style={{
-              fontFamily: 'IBM Plex Sans, sans-serif',
+              fontFamily: 'var(--font-sans)',
               fontSize: '2rem',
               fontWeight: 700,
               color: 'var(--color-accent-orange)',
@@ -44,7 +44,7 @@ export default function IntroPage() {
           </span>
           <span
             style={{
-              fontFamily: 'IBM Plex Sans, sans-serif',
+              fontFamily: 'var(--font-sans)',
               fontSize: '2rem',
               fontWeight: 700,
               color: 'var(--color-text)',
@@ -56,7 +56,7 @@ export default function IntroPage() {
         </div>
         <p
           style={{
-            fontFamily: 'IBM Plex Sans, sans-serif',
+            fontFamily: 'var(--font-sans)',
             fontSize: '1.125rem',
             color: 'var(--color-text-secondary)',
             margin: '0 auto 6px',
@@ -74,7 +74,7 @@ export default function IntroPage() {
         </p>
         <p
           style={{
-            fontFamily: 'IBM Plex Sans, sans-serif',
+            fontFamily: 'var(--font-sans)',
             fontSize: '0.9375rem',
             color: 'var(--color-text-muted)',
             margin: '0 auto 24px',
@@ -110,7 +110,7 @@ export default function IntroPage() {
                 border: '1px solid var(--color-border)',
                 borderRadius: '6px',
                 padding: '12px 18px',
-                fontFamily: 'IBM Plex Sans, sans-serif',
+                fontFamily: 'var(--font-sans)',
                 fontSize: '0.9375rem',
                 fontWeight: 500,
                 cursor: 'pointer',
@@ -128,7 +128,7 @@ export default function IntroPage() {
           maxWidth: '760px',
           margin: '0 auto',
           padding: '12px 32px 80px',
-          fontFamily: 'IBM Plex Sans, sans-serif',
+          fontFamily: 'var(--font-sans)',
           fontSize: '1rem',
           lineHeight: 1.65,
           color: 'var(--color-text-secondary)',
@@ -213,7 +213,7 @@ function Footer() {
         paddingTop: '20px',
         borderTop: '1px solid var(--color-border-subtle)',
         textAlign: 'center' as const,
-        fontFamily: 'IBM Plex Sans, sans-serif',
+        fontFamily: 'var(--font-sans)',
         fontSize: '0.8125rem',
         color: 'var(--color-text-muted)',
       }}

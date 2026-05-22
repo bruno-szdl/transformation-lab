@@ -1,74 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --color-base: #0d1117;
-  --color-surface: #161b22;
-  --color-surface-raised: #1c2128;
-  --color-terminal-bg: #0a0e14;
-  --color-dag-bg: #080c12;
-  --color-hint-bg: #1c2128;
-  --color-border: #30363d;
-  --color-border-subtle: #21262d;
-  /* `--color-muted` is used for both decorative chrome and small text labels.
-     Set at WCAG AA (~4.5:1) against `--color-base` so text usage stays legible. */
-  --color-muted: #6e7681;
-  --color-text: #e6edf3;
-  --color-text-secondary: #c9d1d9;
-  --color-text-muted: #7d8590;
-  --color-accent-orange: #ff694a;
-  --color-accent-orange-dim: #ff694a33;
-  --color-accent-bg: #ff694a1a;
-  --color-success: #3fb950;
-  --color-success-bg: #3fb95015;
-  --color-success-border: #3fb95030;
-  --color-on-accent: #0d1117;
-  --color-on-success: #0d1117;
-  --color-fail: #f85149;
-  --color-warning: #d29922;
-  --color-warning-bg: #d2992215;
-  --color-warning-border: #d2992240;
-
-  /* Pulse colors — referenced from animation keyframes so they pick up the
-     theme automatically without duplicating keyframe definitions. */
-  --pulse-cycle-color: rgba(248, 81, 73, 0.5);
-  --pulse-success-color: rgba(63, 185, 80, 0.45);
-  --pulse-reveal-color: rgba(255, 105, 74, 0.55);
-
-  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-}
-
-[data-theme="light"] {
-  --color-base: #ffffff;
-  --color-surface: #f6f8fa;
-  --color-surface-raised: #ffffff;
-  --color-terminal-bg: #f6f8fa;
-  --color-dag-bg: #f6f8fa;
-  --color-hint-bg: #fff8c5;
-  --color-border: #d0d7de;
-  --color-border-subtle: #eaeef2;
-  --color-muted: #656c76;
-  --color-text: #1f2328;
-  --color-text-secondary: #3d444d;
-  --color-text-muted: #636c76;
-  --color-accent-orange: #e05a3a;
-  --color-accent-orange-dim: #e05a3a33;
-  --color-accent-bg: #e05a3a12;
-  --color-success: #1a7f37;
-  --color-success-bg: #1a7f3715;
-  --color-success-border: #1a7f3730;
-  --color-on-accent: #ffffff;
-  --color-on-success: #ffffff;
-  --color-fail: #cf222e;
-  --color-warning: #9a6700;
-  --color-warning-bg: #9a670012;
-  --color-warning-border: #9a670030;
-
-  --pulse-cycle-color: rgba(207, 34, 46, 0.45);
-  --pulse-success-color: rgba(26, 127, 55, 0.4);
-  --pulse-reveal-color: rgba(224, 90, 58, 0.55);
-}
+/*
+ * Design tokens (colours, fonts, the @theme {} block and the [data-theme]
+ * overrides) live in @datagym/design - the single source of truth shared with
+ * datagym and the other quests. The accent routes through --lab-accent, which
+ * defaults to dbt's coral #ff694a, so this lab needs no override.
+ * App-specific styles (utilities, keyframes, React Flow overrides) stay below.
+ */
+@import "@datagym/design/theme.css";
 
 /* Type scale: bump root font-size 10% on desktop so all rem-based typography
    renders comfortably without the non-standard `zoom` property. Mobile keeps
@@ -186,7 +125,7 @@ body {
   color: var(--color-on-accent);
   border: none;
   border-radius: 6px;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 600;
   cursor: pointer;
   transition: filter 120ms ease, transform 120ms ease;
@@ -199,6 +138,81 @@ body {
 
 .btn-primary:active {
   transform: translateY(1px);
+}
+
+/* ── DataGym.io lab bar ───────────────────────────────────────────────────── */
+/* Thin hub-chrome strip above the app header - the only DataGym.io branding,
+   mirroring the dbt cheat sheet's labbar. */
+.labbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+  padding: 6px 16px;
+  background: var(--color-base);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.labbar__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-secondary);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 120ms ease;
+}
+
+.labbar__back:hover {
+  color: var(--color-accent-orange);
+}
+
+.labbar__arrow {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.labbar__logo {
+  display: block;
+  /* Explicit height: Tailwind's preflight sets `img { height: auto }`, which
+     overrides the <img height> attribute (a presentational hint, ~zero
+     specificity). Without this the logo renders at the SVG's intrinsic size.
+     13px matches the dbt cheat sheet's labbar. */
+  height: 13px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+/* The quest's dark theme leaves data-theme empty, light sets it to "light".
+   Default (dark) shows the light-ink logo; light mode shows the dark-ink one. */
+.labbar__logo--default {
+  display: none;
+}
+.labbar__logo--light {
+  display: block;
+}
+[data-theme="light"] .labbar__logo--default {
+  display: block;
+}
+[data-theme="light"] .labbar__logo--light {
+  display: none;
+}
+
+.labbar__tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 380px) {
+  .labbar__tag {
+    display: none;
+  }
 }
 
 /* ── Animations ───────────────────────────────────────────────────────────── */

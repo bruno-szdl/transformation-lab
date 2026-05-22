@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Header from './components/Header'
+import LabBar from './components/LabBar'
 import IntroPage from './components/IntroPage'
 import Workspace from './components/Workspace'
 import PrivacyPage from './components/PrivacyPage'
@@ -112,6 +113,7 @@ export default function App() {
   if (isMobile) {
     return (
       <div className="flex flex-col h-full overflow-hidden" style={{ background: 'var(--color-base)' }}>
+        <LabBar />
         <Header />
         <div className="flex-1 overflow-y-auto">
           {route === 'privacy' ? <PrivacyPage /> : (isIntro ? <IntroPage /> : <MobileLayout />)}
@@ -122,6 +124,7 @@ export default function App() {
 
   return (
     <div className="flex flex-col h-full overflow-hidden" style={{ background: 'var(--color-base)' }}>
+      <LabBar />
       <Header />
       {route === 'privacy' ? <PrivacyPage /> : (isIntro ? <IntroPage /> : <Workspace />)}
     </div>

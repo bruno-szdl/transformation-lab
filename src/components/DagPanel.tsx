@@ -19,6 +19,7 @@ import * as dagre from 'dagre'
 import { buildDag, type NodeLayer, type DagNode, type DagEdge } from '../engine/dagBuilder'
 import { useGameStore } from '../store/gameStore'
 import { type GoalDagShape } from '../engine/types'
+import { dag } from '@datagym/design/tokens'
 
 // ── types ─────────────────────────────────────────────────────────────────────
 
@@ -44,22 +45,11 @@ const NODE_W = 160
 const NODE_H = 46
 
 // Layer palettes are theme-aware. ReactFlow needs concrete hex strings (it can't
-// resolve CSS variables in its style props), so we keep both palettes here and
-// pick by theme. Dark uses the GitHub primer-dark colors; light uses primer-light
-// equivalents so contrast against the light surface stays readable.
-const LAYER_PALETTE_DARK: Record<NodeLayer, string> = {
-  source: '#3fb950',
-  staging: '#388bfd',
-  intermediate: '#d29922',
-  mart: '#8957e5',
-}
-
-const LAYER_PALETTE_LIGHT: Record<NodeLayer, string> = {
-  source: '#1a7f37',
-  staging: '#0969da',
-  intermediate: '#9a6700',
-  mart: '#8250df',
-}
+// resolve CSS variables in its style props), so the resolved hex literals come
+// from the shared @datagym/design token package - staging is datagym blue,
+// source/intermediate track the success/warning tokens.
+const LAYER_PALETTE_DARK: Record<NodeLayer, string> = dag.layer.dark
+const LAYER_PALETTE_LIGHT: Record<NodeLayer, string> = dag.layer.light
 
 function layerColor(layer: NodeLayer, isDark: boolean): string {
   return (isDark ? LAYER_PALETTE_DARK : LAYER_PALETTE_LIGHT)[layer]
@@ -70,10 +60,10 @@ function layerBg(layer: NodeLayer, isDark: boolean): string {
   return `${layerColor(layer, isDark)}12`
 }
 
-const FAIL_COLOR_DARK = '#f85149'
-const FAIL_COLOR_LIGHT = '#cf222e'
-const IDLE_DOT_DARK = '#484f58'
-const IDLE_DOT_LIGHT = '#8c959f'
+const FAIL_COLOR_DARK = dag.fail.dark
+const FAIL_COLOR_LIGHT = dag.fail.light
+const IDLE_DOT_DARK = dag.idleDot.dark
+const IDLE_DOT_LIGHT = dag.idleDot.light
 
 // ── custom node ───────────────────────────────────────────────────────────────
 
@@ -252,7 +242,7 @@ function toRfNodes(
 }
 
 function toRfEdges(dagEdges: DagEdge[], isDark: boolean): Edge[] {
-  const edgeColor = isDark ? '#484f58' : '#8c959f'
+  const edgeColor = isDark ? dag.edge.dark : dag.edge.light
   return dagEdges.map((e) => ({
     id: e.id,
     source: e.source,
@@ -297,9 +287,9 @@ function DagCanvas({ rfNodes, rfEdges, isDark }: DagCanvasProps) {
     instance.fitView({ padding: 0.25 })
   }, [])
 
-  const bgDotColor = isDark ? '#30363d' : '#d0d7de'
-  const controlsBg = isDark ? '#161b22' : '#ffffff'
-  const controlsBorder = isDark ? '#30363d' : '#d0d7de'
+  const bgDotColor = isDark ? dag.bgDot.dark : dag.bgDot.light
+  const controlsBg = isDark ? dag.controlsBg.dark : dag.controlsBg.light
+  const controlsBorder = isDark ? dag.controlsBorder.dark : dag.controlsBorder.light
 
   return (
     <div className="relative w-full h-full">

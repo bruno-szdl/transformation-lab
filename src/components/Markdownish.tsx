@@ -75,7 +75,7 @@ function splitBlocks(text: string): string[] {
 export function Markdownish({ text }: { text: string }) {
   const blocks = splitBlocks(text)
   return (
-    <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.875rem', fontFamily: 'IBM Plex Sans, sans-serif', lineHeight: 1.7 }}>
+    <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.875rem', fontFamily: 'var(--font-sans)', lineHeight: 1.7 }}>
       {blocks.map((block, i) => {
         if (block.startsWith('```')) {
           const code = block.replace(/^```\w*\n?/, '').replace(/\n?```$/, '')

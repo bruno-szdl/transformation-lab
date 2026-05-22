@@ -43,10 +43,10 @@ export default function Header() {
           {!isMobile && (
             <div className="flex flex-col justify-center" style={{ gap: '1px' }}>
               <div className="flex items-center" style={{ gap: '1px' }}>
-                <span className="font-semibold tracking-tight" style={{ fontFamily: 'IBM Plex Sans, sans-serif', color: 'var(--color-accent-orange)', fontSize: '0.9375rem' }}>AE</span>
-                <span className="font-semibold tracking-tight" style={{ fontFamily: 'IBM Plex Sans, sans-serif', color: 'var(--color-text)', fontSize: '0.9375rem' }}>Quest</span>
+                <span className="font-semibold tracking-tight" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-accent-orange)', fontSize: '0.9375rem' }}>AE</span>
+                <span className="font-semibold tracking-tight" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-text)', fontSize: '0.9375rem' }}>Quest</span>
               </div>
-              <span style={{ fontFamily: 'IBM Plex Sans, sans-serif', color: 'var(--color-muted)', fontSize: '0.625rem', lineHeight: 1 }}>
+              <span style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-muted)', fontSize: '0.625rem', lineHeight: 1 }}>
                 {t('header.tagline')}
               </span>
             </div>
@@ -107,10 +107,10 @@ function ResetLessonButton() {
       style={{
         height: '28px',
         padding: '0 8px',
-        fontFamily: 'IBM Plex Sans, sans-serif',
+        fontFamily: 'var(--font-sans)',
         fontSize: '0.6875rem',
-        color: armed ? 'var(--color-error, #f87171)' : 'var(--color-muted)',
-        borderColor: armed ? 'var(--color-error, #f87171)' : undefined,
+        color: armed ? 'var(--color-fail)' : 'var(--color-muted)',
+        borderColor: armed ? 'var(--color-fail)' : undefined,
         transition: 'color 0.15s',
         whiteSpace: 'nowrap',
       }}
@@ -203,7 +203,7 @@ function LessonSelector({ compact = false }: { compact?: boolean }) {
         onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(128,128,128,0.08)' }}
         onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent' }}
       >
-        <span style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem', fontFamily: 'IBM Plex Sans, sans-serif' }}>{t('header.lesson')}</span>
+        <span style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem', fontFamily: 'var(--font-sans)' }}>{t('header.lesson')}</span>
         <span
           className="font-semibold px-2.5 py-0.5 rounded"
           style={{
@@ -224,7 +224,7 @@ function LessonSelector({ compact = false }: { compact?: boolean }) {
               style={{
                 color: 'var(--color-text-muted)',
                 fontSize: '0.75rem',
-                fontFamily: 'IBM Plex Sans, sans-serif',
+                fontFamily: 'var(--font-sans)',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
                 whiteSpace: 'nowrap',
@@ -303,7 +303,7 @@ function LessonSelector({ compact = false }: { compact?: boolean }) {
                 </span>
                 <span
                   style={{
-                    fontFamily: 'IBM Plex Sans, sans-serif',
+                    fontFamily: 'var(--font-sans)',
                     fontSize: '0.75rem',
                     color: isCurrent ? 'var(--color-text)' : 'var(--color-text-muted)',
                     flex: 1,
@@ -452,7 +452,7 @@ function LangToggleButton() {
                 </span>
                 <span
                   style={{
-                    fontFamily: 'IBM Plex Sans, sans-serif',
+                    fontFamily: 'var(--font-sans)',
                     fontSize: '0.75rem',
                     color: isCurrent ? 'var(--color-text)' : 'var(--color-text-muted)',
                     flex: 1,

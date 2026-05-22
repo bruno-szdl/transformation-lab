@@ -26,7 +26,7 @@ function TableIcon() {
 
 function ViewIcon() {
   return (
-    <svg width="11" height="11" viewBox="0 0 16 16" fill="#58a6ff" style={{ flexShrink: 0, opacity: 0.9 }}>
+    <svg width="11" height="11" viewBox="0 0 16 16" style={{ flexShrink: 0, opacity: 0.9, fill: 'var(--color-icon-accent)' }}>
       <path d="M8 2C4.6 2 1.8 4.1.2 7.1a1 1 0 0 0 0 1.8C1.8 11.9 4.6 14 8 14s6.2-2.1 7.8-5.1a1 1 0 0 0 0-1.8C14.2 4.1 11.4 2 8 2Zm0 10a5 5 0 1 1 0-10A5 5 0 0 1 8 12Zm0-8a3 3 0 1 0 0 6A3 3 0 0 0 8 4Z" />
     </svg>
   )
@@ -233,7 +233,7 @@ export default function DatabaseExplorer() {
                 padding: '4px 16px 8px',
                 color: 'var(--color-muted)',
                 fontSize: '0.6875rem',
-                fontFamily: 'IBM Plex Sans, sans-serif',
+                fontFamily: 'var(--font-sans)',
                 fontStyle: 'italic',
               }}
             >

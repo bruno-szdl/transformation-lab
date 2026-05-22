@@ -69,7 +69,7 @@ export default function CourseComplete() {
         style={{
           margin: '0 0 10px',
           color: 'var(--color-text)',
-          fontFamily: 'IBM Plex Sans, sans-serif',
+          fontFamily: 'var(--font-sans)',
           fontSize: '1.0625rem',
           fontWeight: 700,
           lineHeight: 1.3,
@@ -141,7 +141,7 @@ export default function CourseComplete() {
             border: '1px solid var(--color-border)',
             borderRadius: '6px',
             cursor: 'pointer',
-            fontFamily: 'IBM Plex Sans, sans-serif',
+            fontFamily: 'var(--font-sans)',
             fontWeight: 500,
           }}
         >
