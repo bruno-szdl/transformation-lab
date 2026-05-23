@@ -12,15 +12,18 @@ const prefersDark = !window.matchMedia('(prefers-color-scheme: light)').matches
 const theme = saved ?? (prefersDark ? 'dark' : 'light')
 if (theme === 'light') document.documentElement.dataset.theme = 'light'
 
-// Cloudflare Web Analytics — only loads when VITE_CF_ANALYTICS_TOKEN is set at
-// build time, so dev / preview builds never ping the prod beacon.
-const cfToken = import.meta.env.VITE_CF_ANALYTICS_TOKEN
-if (cfToken) {
+// Plausible Analytics — shared DataGym.io site. Subdomains roll up to the
+// datagym.io site in Plausible's dashboard. Prod-only so dev / preview builds
+// don't pollute stats.
+if (import.meta.env.PROD) {
   const script = document.createElement('script')
-  script.defer = true
-  script.src = 'https://static.cloudflareinsights.com/beacon.min.js'
-  script.setAttribute('data-cf-beacon', JSON.stringify({ token: cfToken }))
+  script.async = true
+  script.src = 'https://plausible.io/js/pa-c87gbF8nEAP4EwX23Wzfa.js'
   document.head.appendChild(script)
+  const init = document.createElement('script')
+  init.text =
+    'window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()'
+  document.head.appendChild(init)
 }
 
 const rootEl = document.getElementById('root')
