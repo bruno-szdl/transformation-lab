@@ -5,7 +5,7 @@
 // non-JS crawlers (Bing, DuckDuckGo, AI bots) see real content, not an empty
 // shell. The SPA replaces it on mount.
 
-export const SITE_URL = 'https://analyticsengineering.quest'
+export const SITE_URL = 'https://transform-lab.datagym.io'
 export const SUPPORTED_LANGS = ['en', 'pt', 'es', 'fr', 'de', 'it']
 
 // One entry per indexable route. `path` is the URL path (no trailing slash).

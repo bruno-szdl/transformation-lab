@@ -1,4 +1,4 @@
 Contact: info@datagym.io
 Expires: 2027-05-15T00:00:00.000Z
 Preferred-Languages: en
-Canonical: https://analyticsengineering.quest/.well-known/security.txt
+Canonical: https://transform-lab.datagym.io/.well-known/security.txt

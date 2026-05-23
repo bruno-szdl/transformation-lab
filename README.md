@@ -53,7 +53,7 @@ After finishing Analytics Engineering Quest you'll be ready to set up a real dbt
 
 ## Play Online
 
-Analytics Engineering Quest is live at [analyticsengineering.quest](https://analyticsengineering.quest). Start with Lesson 0 and progress through 15 lessons.
+Analytics Engineering Quest is live at [transform-lab.datagym.io](https://transform-lab.datagym.io). Start with Lesson 0 and progress through 15 lessons.
 
 ## Deployment
 

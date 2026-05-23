@@ -11,7 +11,7 @@ The main HTML file includes:
 - **Title**: "Learn dbt Free — Interactive Tutorial & Hands-On Lessons"
 - **Description**: Concise summary of what Analytics Engineering Quest is
 - **Keywords**: `dbt, data, SQL, analytics, tutorial, learning, interactive, game, data engineering`
-- **Canonical URL**: `https://analyticsengineering.quest/`
+- **Canonical URL**: `https://transform-lab.datagym.io/`
 - **Author**: Bruno Szdl
 
 ### 2. Open Graph Tags (Social Sharing)
@@ -22,7 +22,7 @@ When you share the site on Twitter, LinkedIn, Facebook, Slack, etc., these tags 
 - **og:description**: Brief description for social preview
 - **og:image**: `/og-image.svg` (or `/og-image.png` after conversion)
 - **og:type**: `website`
-- **og:url**: `https://analyticsengineering.quest`
+- **og:url**: `https://transform-lab.datagym.io`
 
 **How to test**: Use [Open Graph Debugger](https://www.opengraph.xyz/) or Twitter's [Card Validator](https://cards-dev.twitter.com/validator).
 
@@ -70,7 +70,7 @@ In `<head>`, there's a JSON-LD block defining the site as an `EducationalWebAppl
   "@type": "EducationalWebApplication",
   "name": "Analytics Engineering Quest",
   "description": "...",
-  "url": "https://analyticsengineering.quest",
+  "url": "https://transform-lab.datagym.io",
   "inLanguage": ["en", "pt", "es"],
   "creator": { "@type": "Person", "name": "Bruno Szdl" }
 }
@@ -141,11 +141,11 @@ Cons:
 
 3. **Update `index.html`**:
    ```html
-   <meta property="og:image" content="https://analyticsengineering.quest/og-image.png" />
+   <meta property="og:image" content="https://transform-lab.datagym.io/og-image.png" />
    ```
 
 4. **Test the result**:
-   - Use [Open Graph Debugger](https://www.opengraph.xyz/?url=https://analyticsengineering.quest)
+   - Use [Open Graph Debugger](https://www.opengraph.xyz/?url=https://transform-lab.datagym.io)
    - Share the link on Twitter / LinkedIn
    - Verify the preview shows the correct image
 
@@ -200,7 +200,7 @@ After publishing changes to:
 ```xml
 <!-- After updating Lesson 5 on 2026-06-01: -->
 <url>
-  <loc>https://analyticsengineering.quest/#/lesson/5</loc>
+  <loc>https://transform-lab.datagym.io/#/lesson/5</loc>
   <lastmod>2026-06-01</lastmod>
   <!-- ... -->
 </url>
@@ -231,10 +231,10 @@ Keep it under 300 characters.
 - [ ] Convert og-image.svg to PNG (or keep as SVG)
 - [ ] Update `index.html` if you changed the og-image filename
 - [ ] Set `VITE_CF_ANALYTICS_TOKEN` in Vercel env vars (optional)
-- [ ] Test social preview with [OG Debugger](https://www.opengraph.xyz/?url=https://analyticsengineering.quest)
-- [ ] Verify robots.txt is accessible: `https://analyticsengineering.quest/robots.txt`
-- [ ] Verify sitemap.xml is accessible: `https://analyticsengineering.quest/sitemap.xml`
-- [ ] Verify og-image is accessible: `https://analyticsengineering.quest/og-image.png` (or .svg)
+- [ ] Test social preview with [OG Debugger](https://www.opengraph.xyz/?url=https://transform-lab.datagym.io)
+- [ ] Verify robots.txt is accessible: `https://transform-lab.datagym.io/robots.txt`
+- [ ] Verify sitemap.xml is accessible: `https://transform-lab.datagym.io/sitemap.xml`
+- [ ] Verify og-image is accessible: `https://transform-lab.datagym.io/og-image.png` (or .svg)
 - [ ] Submit sitemap to [Google Search Console](https://search.google.com/search-console)
 - [ ] Monitor coverage and performance in Search Console
 
