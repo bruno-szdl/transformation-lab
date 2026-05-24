@@ -61,7 +61,7 @@ export default function Header() {
         <LangToggleButton />
         <ThemeToggleButton />
         <ExternalIconLink
-          href="https://github.com/bruno-szdl/transform-lab"
+          href="https://github.com/bruno-szdl/transformation-lab"
           label={t('header.githubLabel')}
         >
           <GitHubIcon />

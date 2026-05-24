@@ -15,16 +15,16 @@ jobs:
       - name: Fetch sitemap URLs
         id: sitemap
         run: |
-          xml=$(curl -sf https://transform-lab.datagym.io/sitemap.xml)
+          xml=$(curl -sf https://transformation-lab.datagym.io/sitemap.xml)
           urls=$(echo "$xml" | grep -oP '(?<=<loc>)[^<]+' | jq -Rsc 'split("\n") | map(select(length > 0))')
           echo "urls=$urls" >> "$GITHUB_OUTPUT"
 
       - name: Submit to IndexNow
         run: |
           payload=$(jq -n \
-            --arg host "transform-lab.datagym.io" \
+            --arg host "transformation-lab.datagym.io" \
             --arg key "4e8f0331830f40e294212b22425e529d" \
-            --arg keyLocation "https://transform-lab.datagym.io/4e8f0331830f40e294212b22425e529d.txt" \
+            --arg keyLocation "https://transformation-lab.datagym.io/4e8f0331830f40e294212b22425e529d.txt" \
             --argjson urlList '${{ steps.sitemap.outputs.urls }}' \
             '{host: $host, key: $key, keyLocation: $keyLocation, urlList: $urlList}')
           curl -f -X POST "https://api.indexnow.org/IndexNow" \

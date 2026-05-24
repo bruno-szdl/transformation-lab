@@ -24,4 +24,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://transform-lab.datagym.io/sitemap.xml
+Sitemap: https://transformation-lab.datagym.io/sitemap.xml

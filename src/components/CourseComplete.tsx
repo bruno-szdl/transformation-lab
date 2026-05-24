@@ -22,7 +22,7 @@ export default function CourseComplete() {
   })
 
   const loadLesson = useGameStore((s) => s.loadLesson)
-  const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://transform-lab.datagym.io')}`
+  const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://transformation-lab.datagym.io')}`
 
   return (
     <div

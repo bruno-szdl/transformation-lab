@@ -237,7 +237,7 @@ function Footer() {
       <div>
         {t('intro.footer.builtBy')}
         {' · '}
-        <FooterLink href="https://github.com/bruno-szdl/transform-lab">GitHub</FooterLink>
+        <FooterLink href="https://github.com/bruno-szdl/transformation-lab">GitHub</FooterLink>
         {' · '}
         <FooterLink href="https://www.linkedin.com/in/brunoszdl">LinkedIn</FooterLink>
         {' · '}

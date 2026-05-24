@@ -83,7 +83,7 @@ export default function PrivacyPage() {
           <p style={{ lineHeight: 1.6 }}>
             {t('privacy.contact.text')}{' '}
             <a
-              href="https://github.com/bruno-szdl/transform-lab/issues"
+              href="https://github.com/bruno-szdl/transformation-lab/issues"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: 'var(--color-accent-orange)', textDecoration: 'underline' }}
