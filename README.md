@@ -1,4 +1,4 @@
-# Analytics Engineering Quest
+# Data Transformation Lab
 
 An interactive browser-based game that teaches [dbt](https://www.getdbt.com/) through progressive levels — inspired by [Learn Git Branching](https://learngitbranching.js.org/).
 
@@ -15,9 +15,9 @@ Each level presents a target DAG that you need to reach by editing dbt files and
 
 ## What you'll learn
 
-Analytics Engineering Quest is a focused on-ramp, not a complete reference. Here's what's in scope vs. what's intentionally left to the real dbt:
+Data Transformation Lab is a focused on-ramp, not a complete reference. Here's what's in scope vs. what's intentionally left to the real dbt:
 
-| Concept | AE Quest | Real dbt |
+| Concept | The Lab | Real dbt |
 |---|---|---|
 | `ref()`, `source()`, lineage | ✅ Hands-on | ✅ |
 | Materializations: view, table | ✅ | ✅ |
@@ -40,7 +40,7 @@ Analytics Engineering Quest is a focused on-ramp, not a complete reference. Here
 | Hooks (`on-run-start`, `pre-hook`, `post-hook`) | — | ✅ |
 | Profile / `dbt_project.yml` configuration | - | ✅ |
 
-After finishing Analytics Engineering Quest you'll be ready to set up a real dbt project against DuckDB / Postgres / BigQuery / Snowflake and explore the larger ecosystem.
+After finishing Data Transformation Lab you'll be ready to set up a real dbt project against DuckDB / Postgres / BigQuery / Snowflake and explore the larger ecosystem.
 
 ## Tech Stack
 
@@ -53,7 +53,7 @@ After finishing Analytics Engineering Quest you'll be ready to set up a real dbt
 
 ## Play Online
 
-Analytics Engineering Quest is live at [transformation-lab.datagym.io](https://transformation-lab.datagym.io). Start with Lesson 0 and progress through 15 lessons.
+Data Transformation Lab is live at [transformation-lab.datagym.io](https://transformation-lab.datagym.io). Start with Lesson 0 and progress through 15 lessons.
 
 ## Deployment
 

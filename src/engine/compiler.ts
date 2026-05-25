@@ -11,7 +11,7 @@ export interface CompiledModel {
   /**
    * For incremental models, the SQL captured from the `{% if is_incremental() %}`
    * block — typically a WHERE-clause filter such as `where created_at > (select
-   * max(created_at) from "this")`. ae-quest still full-rebuilds the table on
+   * max(created_at) from "this")`. The lab still full-rebuilds the table on
    * each run, but on subsequent runs it evaluates this filter as a diagnostic
    * count so learners see how many rows would have been appended.
    */
@@ -24,7 +24,7 @@ const CONFIG_RE = /\{\{\s*config\s*\(([\s\S]*?)\)\s*\}\}/g
 const MATERIALIZED_RE = /materialized\s*=\s*['"](\w+)['"]/
 const TAGS_RE = /\btags\s*=\s*(\[[^\]]*\]|['"][^'"]*['"])/
 // Jinja control blocks like {% if is_incremental() %} ... {% endif %} are
-// stripped entirely — ae-quest doesn't execute Jinja, and leaving them in
+// stripped entirely — the lab doesn't execute Jinja, and leaving them in
 // would make DuckDB fail to parse the SQL.
 const JINJA_BLOCK_RE = /\{%[\s\S]*?%\}/g
 // Capture the body of `{% if is_incremental() %} ... {% endif %}` so we can

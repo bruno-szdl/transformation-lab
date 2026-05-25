@@ -98,7 +98,7 @@ function learningResourceLd(page) {
     teaches: page.h1,
     isPartOf: {
       '@type': 'Course',
-      name: 'Analytics Engineering Quest',
+      name: 'Data Transformation Lab',
       url: SITE_URL,
     },
   }
@@ -139,17 +139,17 @@ function headBlock(page) {
     <meta property="og:image" content="${ogImage}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Analytics Engineering Quest — learn dbt with interactive lessons" />
+    <meta property="og:image:alt" content="Data Transformation Lab — learn dbt with interactive lessons" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image" content="${ogImageFallback}" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Analytics Engineering Quest" />
+    <meta property="og:site_name" content="Data Transformation Lab" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${esc(page.title)}" />
     <meta name="twitter:description" content="${esc(page.description)}" />
     <meta name="twitter:image" content="${ogImage}" />
-    <meta name="twitter:image:alt" content="Analytics Engineering Quest — learn dbt" />
+    <meta name="twitter:image:alt" content="Data Transformation Lab — learn dbt" />
     <meta name="twitter:creator" content="@brunoszdl" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

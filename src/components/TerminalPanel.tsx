@@ -197,7 +197,7 @@ export default function TerminalPanel({ embedded = false, mobileMode = false, au
             fontWeight: 600,
           }}
         >
-          ae-quest&nbsp;❯&nbsp;
+          dtlab&nbsp;❯&nbsp;
         </span>
         <input
           ref={inputRef}

@@ -1,4 +1,4 @@
-# SEO & Metadata Setup for Analytics Engineering Quest
+# SEO & Metadata Setup for Data Transformation Lab
 
 This document explains the SEO infrastructure and how to maintain it.
 
@@ -9,7 +9,7 @@ This document explains the SEO infrastructure and how to maintain it.
 The main HTML file includes:
 
 - **Title**: "Learn dbt Free — Interactive Tutorial & Hands-On Lessons"
-- **Description**: Concise summary of what Analytics Engineering Quest is
+- **Description**: Concise summary of what Data Transformation Lab is
 - **Keywords**: `dbt, data, SQL, analytics, tutorial, learning, interactive, game, data engineering`
 - **Canonical URL**: `https://transformation-lab.datagym.io/`
 - **Author**: Bruno Szdl
@@ -68,7 +68,7 @@ In `<head>`, there's a JSON-LD block defining the site as an `EducationalWebAppl
 {
   "@context": "https://schema.org",
   "@type": "EducationalWebApplication",
-  "name": "Analytics Engineering Quest",
+  "name": "Data Transformation Lab",
   "description": "...",
   "url": "https://transformation-lab.datagym.io",
   "inLanguage": ["en", "pt", "es"],
@@ -162,7 +162,7 @@ Monitor indexing in Google Search Console:
 
 ### Search Rankings
 
-Expected keywords for Analytics Engineering Quest:
+Expected keywords for Data Transformation Lab:
 - "learn dbt"
 - "dbt tutorial"
 - "dbt learning"

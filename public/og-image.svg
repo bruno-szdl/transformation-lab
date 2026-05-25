@@ -14,11 +14,11 @@
 
   <!-- Logo/Title area -->
   <g>
-    <!-- "Analytics Engineering" in orange (smaller) -->
-    <text x="80" y="150" font-family="Inter, sans-serif" font-size="56" font-weight="600" fill="#ff694a" letter-spacing="-1">Analytics Engineering</text>
+    <!-- "Data Transformation" in orange (top line of the wordmark) -->
+    <text x="80" y="170" font-family="Inter, sans-serif" font-size="80" font-weight="700" fill="#ff694a" letter-spacing="-2">Data Transformation</text>
 
-    <!-- "Quest" in white (large) -->
-    <text x="80" y="260" font-family="Inter, sans-serif" font-size="120" font-weight="700" fill="#d4e1ec" letter-spacing="-2">Quest</text>
+    <!-- "Lab" in white (bottom line of the wordmark, same size for balance) -->
+    <text x="80" y="260" font-family="Inter, sans-serif" font-size="80" font-weight="700" fill="#d4e1ec" letter-spacing="-2">Lab</text>
 
     <!-- Tagline -->
     <text x="80" y="320" font-family="Inter, sans-serif" font-size="32" font-weight="400" fill="#9fb2c3">Learn dbt interactively</text>

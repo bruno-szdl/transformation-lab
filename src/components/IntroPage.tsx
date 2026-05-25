@@ -40,7 +40,7 @@ export default function IntroPage() {
               letterSpacing: '-0.02em',
             }}
           >
-            Analytics Engineering
+            Data Transformation
           </span>
           <span
             style={{
@@ -51,7 +51,7 @@ export default function IntroPage() {
               letterSpacing: '-0.02em',
             }}
           >
-            Quest
+            Lab
           </span>
         </div>
         <p
@@ -98,8 +98,7 @@ export default function IntroPage() {
               onClick={() => {
                 if (window.confirm(t('intro.restartConfirm'))) {
                   try {
-                    localStorage.removeItem('ae-quest-progress')
-                    localStorage.removeItem('dbt-quest-progress')
+                    localStorage.removeItem('transformation-lab-progress')
                   } catch { /* ignore */ }
                   window.location.reload()
                 }

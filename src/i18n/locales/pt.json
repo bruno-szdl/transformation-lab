@@ -53,7 +53,7 @@
     "restart": "Recomeçar o curso",
     "restartConfirm": "Recomeçar o curso do zero, a partir da Lição 1? Seu progresso será apagado.",
     "welcomeLead": "Bem-vindo ao ",
-    "welcomeProduct": "Analytics Engineering Quest",
+    "welcomeProduct": "Data Transformation Lab",
     "welcomeMid": ", uma série de lições curtas e interativas pensadas para te ajudar a aprender ",
     "welcomeDbt": "dbt",
     "welcomeTail": " direto no navegador, inspirada no ",
@@ -119,7 +119,7 @@
   },
   "courseComplete": {
     "eyebrow": "Curso concluído",
-    "title": "Você terminou o Analytics Engineering Quest 🎉",
+    "title": "Você terminou o Data Transformation Lab 🎉",
     "body": "Agora você consegue ler qualquer projeto dbt real: sources, modelos, refs, materializations, seeds, tests, docs, seletores, `dbt build`. Esse é o kit de ferramentas.",
     "whatNext": "O que fazer agora",
     "step1Lead": "Instale o dbt localmente: ",
@@ -141,7 +141,7 @@
     "header": "terminal",
     "emptyHintLead": "digite um comando dbt abaixo - experimente ",
     "emptyHintCmd": "dbt run",
-    "inputAria": "entrada do terminal ae-quest"
+    "inputAria": "entrada do terminal dtlab"
   },
   "results": {
     "header": "prévia",
@@ -186,7 +186,7 @@
   },
   "errorBoundary": {
     "eyebrow": "Algo quebrou",
-    "title": "O Analytics Engineering Quest encontrou um erro inesperado",
+    "title": "O Data Transformation Lab encontrou um erro inesperado",
     "body": "Tente recarregar a página. Se o problema continuar, você pode resetar o progresso salvo — isso vai limpar as lições concluídas e os painéis liberados, mas deve recuperar o app.",
     "reload": "Recarregar página",
     "reset": "Resetar progresso e recarregar"
@@ -196,7 +196,7 @@
     "lastUpdated": "Última atualização:",
     "introduction": {
       "heading": "1. Introdução",
-      "p1": "Bem-vindo ao Analytics Engineering Quest. Respeitamos sua privacidade e nos comprometemos a ser transparentes sobre como coletamos e usamos informações sobre você.",
+      "p1": "Bem-vindo ao Data Transformation Lab. Respeitamos sua privacidade e nos comprometemos a ser transparentes sobre como coletamos e usamos informações sobre você.",
       "p2": "Esta Política de Privacidade descreve como coletamos, usamos e protegemos seus dados quando você utiliza nosso site."
     },
     "dataCollection": {

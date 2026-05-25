@@ -24,9 +24,9 @@ export type { TerminalLine }
 
 let checkTasksTimer: ReturnType<typeof setTimeout> | null = null
 
-const SEEN_PANELS_KEY = 'ae-quest-seen-panels'
-const PROGRESS_KEY = 'ae-quest-progress'
-const THEME_KEY = 'ae-quest-theme'
+const SEEN_PANELS_KEY = 'transformation-lab-seen-panels'
+const PROGRESS_KEY = 'transformation-lab-progress'
+const THEME_KEY = 'transformation-lab-theme'
 
 function loadSeenPanels(): Set<PanelKey> {
   const raw = safeStorage.getItem(SEEN_PANELS_KEY)
@@ -161,7 +161,7 @@ export const useGameStore = create<StoreState>()(
       snapshotRunCounts: {},
       snapshotClosedRows: {},
       openedFiles: new Set<string>(),
-      terminalHistory: [{ text: 'ae-quest — loading...', color: 'gray' }],
+      terminalHistory: [{ text: 'dtlab — loading...', color: 'gray' }],
       running: false,
       lastPreview: null,
       lastRun: null,
@@ -267,7 +267,7 @@ export const useGameStore = create<StoreState>()(
       runCommand: async (input: string) => {
         if (get().running) return
 
-        const cmdLine: TerminalLine = { text: `ae-quest ❯ ${input}` }
+        const cmdLine: TerminalLine = { text: `dtlab ❯ ${input}` }
         const parsed = parseCommand(input)
 
         if (!parsed.ok) {
@@ -361,7 +361,7 @@ export const useGameStore = create<StoreState>()(
         set((s) => ({
           running: true,
           bottomTab: 'results',
-          terminalHistory: [...s.terminalHistory, { text: `ae-quest ❯ dbt show --select ${name}` }],
+          terminalHistory: [...s.terminalHistory, { text: `dtlab ❯ dbt show --select ${name}` }],
         }))
         try {
           if (!get().ranModels.has(name)) {

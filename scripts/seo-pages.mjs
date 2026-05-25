@@ -21,7 +21,7 @@ export const pages = [
       'learn dbt, dbt tutorial, dbt course, learn dbt free, dbt for beginners, analytics engineering tutorial, dbt hands-on, dbt lessons, dbt online course, data transformation',
     h1: 'Learn dbt — Free Interactive Tutorial',
     summary: [
-      'Analytics Engineering Quest is a free, interactive tutorial for learning dbt (data build tool) directly in your browser. No installation, no signup — just SQL, a real DuckDB warehouse, and 14 hands-on lessons covering everything from your first model to data tests, sources, and the dbt build command.',
+      'Data Transformation Lab is a free, interactive tutorial for learning dbt (data build tool) directly in your browser. No installation, no signup — just SQL, a real DuckDB warehouse, and 14 hands-on lessons covering everything from your first model to data tests, sources, and the dbt build command.',
       'dbt is the open-source tool that lets analytics engineers transform raw data into reliable, documented datasets using SQL and software engineering best practices. This course walks you through it lesson by lesson, with a single fictional e-commerce dbt project that grows as you learn.',
       'Topics covered: dbt models, ref() and the DAG, materializations (view vs table), selecting models with --select, sources, seeds, data tests (not_null, unique, relationships, accepted_values), documentation, project structure (staging, intermediate, marts), and dbt build.',
     ],
@@ -30,7 +30,7 @@ export const pages = [
   {
     path: '/lesson/0',
     slug: 'intro',
-    title: 'Introduction to dbt — Analytics Engineering Quest',
+    title: 'Introduction to dbt — Data Transformation Lab',
     description:
       'Start the free dbt tutorial. Learn what dbt is, why analytics engineers use it, and how dbt run, ref(), and the DAG work — all in your browser, no setup.',
     keywords: 'what is dbt, introduction to dbt, dbt explained, learn dbt, dbt for beginners, dbt tutorial intro',
@@ -240,12 +240,12 @@ export const pages = [
   {
     path: '/privacy',
     slug: 'privacy',
-    title: 'Privacy Policy — Analytics Engineering Quest',
-    description: 'Privacy policy for Analytics Engineering Quest, a free interactive dbt tutorial.',
+    title: 'Privacy Policy — Data Transformation Lab',
+    description: 'Privacy policy for Data Transformation Lab, a free interactive dbt tutorial.',
     keywords: 'privacy policy',
     h1: 'Privacy Policy',
     summary: [
-      'Analytics Engineering Quest runs entirely in your browser. We do not require an account, do not store your code on a server, and use Cloudflare Web Analytics for aggregate, anonymized traffic data only.',
+      'Data Transformation Lab runs entirely in your browser. We do not require an account, do not store your code on a server, and use Cloudflare Web Analytics for aggregate, anonymized traffic data only.',
     ],
     lessonId: null,
     noindex: false,
@@ -257,13 +257,13 @@ export const pages = [
 export const courseSchema = {
   '@context': 'https://schema.org',
   '@type': 'Course',
-  name: 'Learn dbt — Analytics Engineering Quest',
+  name: 'Learn dbt — Data Transformation Lab',
   description:
     'A free, interactive 15-lesson tutorial that teaches dbt (data build tool) and analytics engineering from scratch. Browser-based, no setup, with a real DuckDB warehouse.',
   url: SITE_URL,
   provider: {
     '@type': 'Organization',
-    name: 'Analytics Engineering Quest',
+    name: 'Data Transformation Lab',
     url: SITE_URL,
   },
   inLanguage: SUPPORTED_LANGS,
@@ -315,7 +315,7 @@ export const faqSchema = {
       name: 'Is dbt free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes — dbt Core is open-source and free. dbt Cloud is a paid hosted product. Analytics Engineering Quest teaches dbt Core concepts that apply to both.',
+        text: 'Yes — dbt Core is open-source and free. dbt Cloud is a paid hosted product. Data Transformation Lab teaches dbt Core concepts that apply to both.',
       },
     },
     {
@@ -323,7 +323,7 @@ export const faqSchema = {
       name: 'Do I need to install anything?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. Analytics Engineering Quest runs entirely in your browser. SQL executes against a real (in-browser) DuckDB warehouse via WebAssembly. No signup, no install, no credit card.',
+        text: 'No. Data Transformation Lab runs entirely in your browser. SQL executes against a real (in-browser) DuckDB warehouse via WebAssembly. No signup, no install, no credit card.',
       },
     },
     {

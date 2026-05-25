@@ -1,4 +1,4 @@
-# Analytics Engineering Quest robots.txt
+# Data Transformation Lab robots.txt
 # Allow all crawlers — including social link-preview bots and LLM crawlers —
 # to fetch and index the site.
 

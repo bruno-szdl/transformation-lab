@@ -31,7 +31,7 @@ function langFromQuery(): Supported | null {
 
 // Lang resolution order: ?lang= query (lets hreflang URLs work for SEO) →
 // localStorage preference → browser language → English fallback.
-const saved = localStorage.getItem('ae-quest-lang') ?? localStorage.getItem('dbt-quest-lang')
+const saved = localStorage.getItem('transformation-lab-lang')
 const initial: Supported =
   langFromQuery() ??
   ((SUPPORTED as readonly string[]).includes(saved ?? '')

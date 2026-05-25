@@ -43,8 +43,8 @@ export default function Header() {
           {!isMobile && (
             <div className="flex flex-col justify-center" style={{ gap: '1px' }}>
               <div className="flex items-center" style={{ gap: '1px' }}>
-                <span className="font-semibold tracking-tight" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-accent-orange)', fontSize: '0.9375rem' }}>AE</span>
-                <span className="font-semibold tracking-tight" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-text)', fontSize: '0.9375rem' }}>Quest</span>
+                <span className="font-semibold tracking-tight" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-accent-orange)', fontSize: '0.75rem' }}>Data Transformation&nbsp;</span>
+                <span className="font-semibold tracking-tight" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-text)', fontSize: '0.75rem' }}>Lab</span>
               </div>
               <span style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-muted)', fontSize: '0.625rem', lineHeight: 1 }}>
                 {t('header.tagline')}
@@ -366,7 +366,7 @@ function LangToggleButton() {
 
   const choose = (code: string) => {
     void i18n.changeLanguage(code)
-    localStorage.setItem('ae-quest-lang', code)
+    localStorage.setItem('transformation-lab-lang', code)
     setOpen(false)
   }
 
