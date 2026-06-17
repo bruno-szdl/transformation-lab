@@ -86,7 +86,15 @@
     },
     "whatIsDbt": {
       "heading": "What is dbt?",
-      "body": "dbt is the open-source tool data teams use to turn raw warehouse tables into trustworthy, documented, tested models. It sits on top of any SQL warehouse and lets you manage transformation SQL *as code*: version-controlled, modular, and testable."
+      "body": "dbt (data build tool) is the open-source tool data teams use to turn raw warehouse tables into trustworthy, documented, tested models. It sits on top of any SQL warehouse (Snowflake, BigQuery, Databricks, Postgres, DuckDB, and more) and lets you manage your transformation SQL *as code*: version-controlled, modular, and testable."
+    },
+    "whyLearn": {
+      "heading": "Why learn dbt?",
+      "body": "dbt is the de facto standard for **analytics engineering** - the skill that turns SQL knowledge into real, production data pipelines, and one of the most requested tools on data-team job posts. It's also approachable: a dbt project is just folders of `.sql` and `.yml` files, so if you can write SQL, you can write dbt."
+    },
+    "didYouKnow": {
+      "title": "Did you know?",
+      "body": "dbt turns those plain SQL files into something bigger: a managed, tested, documented, version-controlled transformation framework with full **lineage** (the DAG you'll build up across the lessons)."
     },
     "beforeYouStart": {
       "heading": "Before you start",

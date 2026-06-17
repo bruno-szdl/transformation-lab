@@ -126,7 +126,10 @@ export default function HomePage() {
       {/* ── COMPACT PRIMER ────────────────────────────────────────────────── */}
       <article style={{ maxWidth: '720px', margin: '0 auto', padding: '24px 32px 16px', fontFamily: 'var(--font-sans)', fontSize: '0.9375rem', lineHeight: 1.65, color: 'var(--color-text-secondary)' }}>
         <PrimerHeading>{t('home.whatIsDbt.heading')}</PrimerHeading>
-        <p style={{ margin: '0 0 16px' }}>{renderInline(t('home.whatIsDbt.body'))}</p>
+        <p style={{ margin: '0 0 18px' }}>{renderInline(t('home.whatIsDbt.body'))}</p>
+        <PrimerHeading>{t('home.whyLearn.heading')}</PrimerHeading>
+        <p style={{ margin: '0 0 18px' }}>{renderInline(t('home.whyLearn.body'))}</p>
+        <Callout title={t('home.didYouKnow.title')}>{renderInline(t('home.didYouKnow.body'))}</Callout>
         <PrimerHeading>{t('home.beforeYouStart.heading')}</PrimerHeading>
         <p style={{ margin: 0 }}>{renderInline(t('home.beforeYouStart.body'))}</p>
       </article>
@@ -141,6 +144,23 @@ function PrimerHeading({ children }: { children: React.ReactNode }) {
     <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', fontWeight: 700, color: 'var(--color-text)', margin: '0 0 8px' }}>
       {children}
     </h2>
+  )
+}
+
+function Callout({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div
+      style={{
+        borderLeft: '3px solid var(--color-accent-orange)',
+        background: 'var(--color-surface)',
+        borderRadius: '0 8px 8px 0',
+        padding: '12px 16px',
+        margin: '0 0 18px',
+      }}
+    >
+      <div style={{ fontWeight: 700, color: 'var(--color-text)', marginBottom: '4px' }}>{title}</div>
+      <div>{children}</div>
+    </div>
   )
 }
 
