@@ -28,8 +28,7 @@ See [`CLAUDE.md`](./CLAUDE.md) for the full rationale + decisions log (D1–D37)
 ## Run the lab app (what you'll usually want)
 ```bash
 npm install                  # workspace deps (root) - React/Vite/Monaco/reactflow + the engine
-npm run engine:wheelhouse    # ONE-TIME: build the vendored wheelhouse (it's gitignored). Skip if
-                             #   packages/dbt-wasm-engine/wheelhouse/ already exists.
+                             #   (the ~15 MB wheelhouse is committed, so there's no separate fetch step)
 npm run basics:dev           # Vite dev server → open the printed URL (default http://localhost:5173)
 ```
 > The app serves the wheelhouse via the `apps/transformation-lab-basics/public/wheelhouse` **symlink**

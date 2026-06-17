@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "npm install",
-  "buildCommand": "npm run engine:wheelhouse && npm run basics:build",
+  "buildCommand": "npm run basics:build",
   "outputDirectory": "apps/transformation-lab-basics/dist",
   "framework": null,
   "cleanUrls": true,

@@ -4,9 +4,13 @@ dist/
 .vite/
 # Full Pyodide distribution (~768 MB extracted). Re-download via `npm run fetch-dist` (see README).
 pyodide-dist/
-# Local wheelhouse: 28 vendored .whl (~15 MB). Rebuild deterministically from the committed
-# wheelhouse-lock.json via `npm run wheelhouse`. (Commit it instead if you want PyPI-free clones.)
+# Wheelhouse: the 28 vendored .whl (~15 MB) ARE committed at packages/dbt-wasm-engine/wheelhouse/
+# so production builds need NO PyPI access (Vite copies them into dist/ via the public/wheelhouse
+# symlink). Refresh from wheelhouse-lock.json with `npm run engine:wheelhouse` only when bumping
+# dbt/Pyodide versions, then commit the result. Any *other* wheelhouse dir stays ignored.
 wheelhouse/
+!packages/dbt-wasm-engine/wheelhouse/
+!packages/dbt-wasm-engine/wheelhouse/**
 # (wheelhouse-lock.json IS tracked - it's the pinned closure / source of truth for the wheelhouse.)
 # DuckDB files written by dbt runs into the project tree during local experiments.
 *.duckdb
