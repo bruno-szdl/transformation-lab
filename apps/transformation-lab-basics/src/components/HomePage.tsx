@@ -2,6 +2,8 @@ import { useTranslation } from 'react-i18next'
 import { useGameStore } from '../store/gameStore'
 import { getLessonById, getLastLessonId } from '../lessons'
 import { renderInline } from './Markdownish'
+import { dag } from '@datagym/design/tokens'
+import { type NodeLayer } from '../engine/dagBuilder'
 
 /**
  * The subdomain landing page (rendered at `/`, i.e. `currentLessonId === 0`).
@@ -130,6 +132,10 @@ export default function HomePage() {
         <PrimerHeading>{t('home.whyLearn.heading')}</PrimerHeading>
         <p style={{ margin: '0 0 18px' }}>{renderInline(t('home.whyLearn.body'))}</p>
         <Callout title={t('home.didYouKnow.title')}>{renderInline(t('home.didYouKnow.body'))}</Callout>
+        <PrimerHeading>{t('home.exampleDag.heading')}</PrimerHeading>
+        <p style={{ margin: '0 0 12px' }}>{t('home.exampleDag.intro')}</p>
+        <DagDiagram />
+        <p style={{ margin: '0 0 18px' }}>{renderInline(t('home.exampleDag.caption'))}</p>
         <PrimerHeading>{t('home.beforeYouStart.heading')}</PrimerHeading>
         <p style={{ margin: 0 }}>{renderInline(t('home.beforeYouStart.body'))}</p>
       </article>
@@ -161,6 +167,97 @@ function Callout({ title, children }: { title: string; children: React.ReactNode
       <div style={{ fontWeight: 700, color: 'var(--color-text)', marginBottom: '4px' }}>{title}</div>
       <div>{children}</div>
     </div>
+  )
+}
+
+/**
+ * A small static example DAG (raw -> staging -> intermediate -> mart), drawn with
+ * the SAME layer palette as the real in-lesson lineage panel (`dag.layer` tokens),
+ * so the home preview matches what learners see once they start.
+ */
+function DagDiagram() {
+  const { t } = useTranslation()
+  const isDark = useGameStore((s) => s.theme) !== 'light'
+  const palette: Record<NodeLayer, string> = isDark ? dag.layer.dark : dag.layer.light
+
+  const nodes: { id: string; label: string; layer: NodeLayer; x: number; y: number }[] = [
+    { id: 'raw_customers', label: 'raw.customers', layer: 'source', x: 0, y: 0 },
+    { id: 'raw_orders', label: 'raw.orders', layer: 'source', x: 0, y: 1 },
+    { id: 'stg_customers', label: 'stg_customers', layer: 'staging', x: 1, y: 0 },
+    { id: 'stg_orders', label: 'stg_orders', layer: 'staging', x: 1, y: 1 },
+    { id: 'int_orders_joined', label: 'int_orders_joined', layer: 'intermediate', x: 2, y: 0.5 },
+    { id: 'fct_revenue', label: 'fct_revenue', layer: 'mart', x: 3, y: 0.5 },
+  ]
+  const edges: [string, string][] = [
+    ['raw_customers', 'stg_customers'],
+    ['raw_orders', 'stg_orders'],
+    ['stg_customers', 'int_orders_joined'],
+    ['stg_orders', 'int_orders_joined'],
+    ['int_orders_joined', 'fct_revenue'],
+  ]
+  const colWidth = 150, rowHeight = 60, nodeW = 130, nodeH = 34, padX = 12, padY = 18
+  const W = colWidth * 4 + padX * 2 - (colWidth - nodeW)
+  const H = rowHeight * 2 + padY * 2
+  const pos = (n: (typeof nodes)[number]) => ({
+    cx: padX + n.x * colWidth + nodeW / 2,
+    cy: padY + n.y * rowHeight + nodeH / 2,
+  })
+
+  return (
+    <div style={{ border: '1px solid var(--color-border)', borderRadius: '8px', background: 'var(--color-surface)', padding: '12px', overflowX: 'auto', margin: '0 0 12px' }}>
+      <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ display: 'block', margin: '0 auto', maxWidth: '100%' }}>
+        <defs>
+          <marker id="home-dag-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L0,8 L8,4 z" fill="var(--color-text-muted)" />
+          </marker>
+        </defs>
+        {edges.map(([from, to]) => {
+          const f = nodes.find((n) => n.id === from)!
+          const tn = nodes.find((n) => n.id === to)!
+          const a = pos(f)
+          const b = pos(tn)
+          return (
+            <line
+              key={`${from}-${to}`}
+              x1={a.cx + nodeW / 2}
+              y1={a.cy}
+              x2={b.cx - nodeW / 2 - 4}
+              y2={b.cy}
+              stroke="var(--color-text-muted)"
+              strokeWidth="1.2"
+              markerEnd="url(#home-dag-arrow)"
+              opacity="0.6"
+            />
+          )
+        })}
+        {nodes.map((n) => {
+          const p = pos(n)
+          return (
+            <g key={n.id} transform={`translate(${p.cx - nodeW / 2}, ${p.cy - nodeH / 2})`}>
+              <rect width={nodeW} height={nodeH} rx={5} fill="var(--color-base)" stroke={palette[n.layer]} strokeWidth="1.4" />
+              <text x={nodeW / 2} y={nodeH / 2} textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)" fontSize="11" fill="var(--color-text)">
+                {n.label}
+              </text>
+            </g>
+          )
+        })}
+      </svg>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', marginTop: '10px', flexWrap: 'wrap', fontFamily: 'var(--font-mono)', fontSize: '0.6875rem', color: 'var(--color-text-muted)' }}>
+        <LegendDot color={palette.source} label={t('home.exampleDag.legend.source')} />
+        <LegendDot color={palette.staging} label={t('home.exampleDag.legend.staging')} />
+        <LegendDot color={palette.intermediate} label={t('home.exampleDag.legend.intermediate')} />
+        <LegendDot color={palette.mart} label={t('home.exampleDag.legend.mart')} />
+      </div>
+    </div>
+  )
+}
+
+function LegendDot({ color, label }: { color: string; label: string }) {
+  return (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+      <span style={{ width: '10px', height: '10px', borderRadius: '3px', border: `1.5px solid ${color}`, display: 'inline-block' }} />
+      {label}
+    </span>
   )
 }
 

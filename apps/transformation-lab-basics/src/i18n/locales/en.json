@@ -96,6 +96,17 @@
       "title": "Did you know?",
       "body": "dbt turns those plain SQL files into something bigger: a managed, tested, documented, version-controlled transformation framework with full **lineage** (the DAG you'll build up across the lessons)."
     },
+    "exampleDag": {
+      "heading": "An example DAG",
+      "intro": "Real pipelines have several layers. A common pattern looks like this:",
+      "caption": "The arrows are `ref()` calls in your SQL. dbt reads them, builds the graph above, and runs the models left to right - exactly what you'll do in the lessons.",
+      "legend": {
+        "source": "source",
+        "staging": "staging",
+        "intermediate": "intermediate",
+        "mart": "mart"
+      }
+    },
     "beforeYouStart": {
       "heading": "Before you start",
       "body": "You only need basic SQL: `SELECT`, `WHERE`, `GROUP BY`. No warehouse, no dbt installation, no command line. The first lesson downloads the real dbt engine (~40 MB) once and caches it for later visits; everything runs in your browser."
