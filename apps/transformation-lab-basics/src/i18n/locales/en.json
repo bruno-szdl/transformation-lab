@@ -7,7 +7,7 @@
     "installing": "Setting up dbt-core + dbt-duckdb…",
     "finalizing": "Finalizing the environment…",
     "ready": "Ready!",
-    "note": "First visit only: the lab fetches the real dbt-core engine (~40 MB), which usually takes 10–30 seconds. Everything runs in your browser - nothing is installed on your computer, and there's no backend.",
+    "note": "First visit downloads the real dbt-core engine (~40 MB), which usually takes about 10-30 seconds. It's cached afterward, so later visits skip the download and start faster. Everything runs in your browser - nothing is installed on your computer, and there's no backend.",
     "errorTitle": "The dbt environment failed to load",
     "errorHint": "Please check your connection and reload the page."
   },
@@ -90,7 +90,7 @@
     },
     "beforeYouStart": {
       "heading": "Before you start",
-      "body": "You only need basic SQL: `SELECT`, `WHERE`, `GROUP BY`. No warehouse, no dbt installation, no command line. The first lesson loads the real dbt engine (~40 MB, one time); everything runs in your browser."
+      "body": "You only need basic SQL: `SELECT`, `WHERE`, `GROUP BY`. No warehouse, no dbt installation, no command line. The first lesson downloads the real dbt engine (~40 MB) once and caches it for later visits; everything runs in your browser."
     }
   },
   "intro": {
