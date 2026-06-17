@@ -1,0 +1,39 @@
+{
+  "name": "@dbt-wasm/engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Real dbt-core + dbt-duckdb running in the browser via Pyodide (WebAssembly). No backend, no install - the genuine dbt engine runs client-side.",
+  "main": "./src/client.js",
+  "module": "./src/client.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./src/client.js"
+    },
+    "./worker": "./src/worker.js",
+    "./engine-stubs": "./engine-stubs.mjs"
+  },
+  "files": [
+    "src",
+    "engine-stubs.mjs",
+    "index.d.ts",
+    "wheelhouse"
+  ],
+  "scripts": {
+    "fetch-dist": "curl -sSL https://github.com/pyodide/pyodide/releases/download/0.27.7/pyodide-0.27.7.tar.bz2 -o /tmp/pyodide-0.27.7.tar.bz2 && mkdir -p pyodide-dist && tar -xjf /tmp/pyodide-0.27.7.tar.bz2 -C pyodide-dist",
+    "freeze": "node freeze-deps.mjs",
+    "wheelhouse": "node build-wheelhouse.mjs",
+    "gate": "node spike.mjs",
+    "hello": "node hello-dbt.mjs",
+    "serve": "node serve.mjs",
+    "browser-gate": "node test-browser.mjs"
+  },
+  "dependencies": {
+    "pyodide": "0.27.7"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

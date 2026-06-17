@@ -1,48 +1,23 @@
 {
   "name": "transformation-lab",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.0.0",
   "type": "module",
+  "description": "Monorepo: the real-dbt-in-WebAssembly engine (@dbt-wasm/engine) + the transformation-lab courses (apps/transformation-lab-*). Folder will be renamed to transformation-lab once the legacy hand-written-simulation app is deprecated.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && npm run build:og && vite build && npm run build:prerender",
-    "build:og": "node scripts/render-og-image.mjs",
-    "build:prerender": "node scripts/prerender.mjs",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "@types/js-yaml": "^4.0.9",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "eslint": "^9.39.4",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-react-refresh": "^0.5.2",
-    "globals": "^17.5.0",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.0",
-    "vite": "^8.0.9"
-  },
-  "dependencies": {
-    "@datagym/design": "github:bruno-szdl/datagym-design#v1.2.1",
-    "@duckdb/duckdb-wasm": "^1.33.1-dev45.0",
-    "@monaco-editor/react": "^4.7.0",
-    "@tailwindcss/vite": "^4.2.4",
-    "@types/dagre": "^0.7.54",
-    "@xterm/addon-fit": "^0.11.0",
-    "@xterm/xterm": "^6.0.0",
-    "apache-arrow": "^21.1.0",
-    "dagre": "^0.8.5",
-    "html-to-image": "^1.11.13",
-    "i18next": "^26.1.0",
-    "js-yaml": "^4.1.1",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
-    "react-i18next": "^17.0.7",
-    "reactflow": "^11.11.4",
-    "tailwindcss": "^4.2.4",
-    "zustand": "^5.0.12"
+    "engine:gate": "npm run gate -w @dbt-wasm/engine",
+    "engine:hello": "npm run hello -w @dbt-wasm/engine",
+    "engine:browser-gate": "npm run browser-gate -w @dbt-wasm/engine",
+    "engine:serve": "npm run serve -w @dbt-wasm/engine",
+    "engine:wheelhouse": "npm run wheelhouse -w @dbt-wasm/engine",
+    "basics:dev": "npm run dev -w transformation-lab-basics",
+    "basics:build": "npm run build -w transformation-lab-basics",
+    "basics:gate": "npm run gate -w transformation-lab-basics",
+    "basics:certify": "npm run certify -w transformation-lab-basics",
+    "basics:smoke": "npm run smoke -w transformation-lab-basics"
   }
 }

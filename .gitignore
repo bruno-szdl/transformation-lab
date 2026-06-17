@@ -1,40 +1,17 @@
-# Dependencies
 node_modules/
-
-# Build output
+# App build output + Vite cache
 dist/
-dist-ssr/
-
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Editor
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# OS
+.vite/
+# Full Pyodide distribution (~768 MB extracted). Re-download via `npm run fetch-dist` (see README).
+pyodide-dist/
+# Local wheelhouse: 28 vendored .whl (~15 MB). Rebuild deterministically from the committed
+# wheelhouse-lock.json via `npm run wheelhouse`. (Commit it instead if you want PyPI-free clones.)
+wheelhouse/
+# (wheelhouse-lock.json IS tracked - it's the pinned closure / source of truth for the wheelhouse.)
+# DuckDB files written by dbt runs into the project tree during local experiments.
+*.duckdb
+*.duckdb.wal
+# macOS noise
 .DS_Store
-Thumbs.db
-
-# Local env
-.env
-.env.local
-.env.*.local
-
-# Claude Code local settings
+# Claude Code local/personal settings (permissions etc.) - shared settings.json may be committed.
 .claude/settings.local.json
-
-# TypeScript
-*.tsbuildinfo
-
-# Git worktrees
-.worktrees/

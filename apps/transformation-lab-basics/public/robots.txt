@@ -1,0 +1,27 @@
+# Data Transformation Lab robots.txt
+# Allow all crawlers, including social link-preview bots and LLM crawlers,
+# to fetch and index the site.
+
+User-agent: *
+Allow: /
+
+# AI / LLM crawlers (explicit allow, so the site can be cited by LLMs)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://transformation-lab.datagym.io/sitemap.xml

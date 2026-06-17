@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>dbt-wasm-lab - browser harness (Step 2.3)</title>
+    <style>
+      :root { color-scheme: light dark; }
+      * { box-sizing: border-box; }
+      body {
+        font: 14px/1.5 ui-sans-serif, system-ui, sans-serif;
+        margin: 0; padding: 24px; max-width: 1100px; margin-inline: auto;
+      }
+      h1 { font-size: 20px; margin: 0 0 4px; }
+      .sub { color: #888; margin: 0 0 20px; }
+      .row { display: flex; gap: 20px; flex-wrap: wrap; }
+      .col { flex: 1 1 360px; min-width: 320px; }
+      label { display: block; font-weight: 600; margin: 12px 0 4px; }
+      textarea {
+        width: 100%; height: 70px; font: 13px/1.4 ui-monospace, monospace;
+        padding: 8px; border: 1px solid #8884; border-radius: 6px; resize: vertical;
+        background: #8881;
+      }
+      button {
+        margin-top: 14px; padding: 9px 18px; font-size: 14px; font-weight: 600;
+        border: 0; border-radius: 6px; background: #2563eb; color: #fff; cursor: pointer;
+      }
+      button:disabled { opacity: 0.5; cursor: progress; }
+      #status { margin: 14px 0; font-family: ui-monospace, monospace; color: #888; }
+      #verdict { font-size: 18px; font-weight: 700; margin: 14px 0; min-height: 26px; }
+      .pass { color: #16a34a; } .fail { color: #dc2626; }
+      pre {
+        background: #1115; padding: 12px; border-radius: 6px; overflow: auto;
+        max-height: 320px; font: 12px/1.45 ui-monospace, monospace; white-space: pre-wrap;
+      }
+      .lineage li { font-family: ui-monospace, monospace; }
+      .arrow { color: #888; }
+      code { background: #8882; padding: 1px 5px; border-radius: 4px; }
+    </style>
+  </head>
+  <body>
+    <h1>dbt-wasm-lab - real dbt-core in the browser</h1>
+    <p class="sub">
+      Step 2.3 gate: <strong>real dbt-core 1.10.8 + dbt-duckdb</strong> booting in a Web Worker,
+      no backend. Edit a model, hit Build, watch dbt actually run against DuckDB-wasm.
+    </p>
+
+    <div id="status">initialising…</div>
+    <div id="verdict"></div>
+
+    <div class="row">
+      <div class="col">
+        <label for="seed">seed: <code>seeds/raw_customers.csv</code> (fixed)</label>
+        <textarea id="seed" readonly>id,name
+1,Alice
+2,Bob
+3,Carol</textarea>
+
+        <label for="m1">model: <code>models/customers.sql</code></label>
+        <textarea id="m1">select id, name from {{ ref('raw_customers') }}</textarea>
+
+        <label for="m2">model: <code>models/customer_count.sql</code></label>
+        <textarea id="m2">select count(*) as n_customers from {{ ref('customers') }}</textarea>
+
+        <button id="build" disabled>Build (dbt seed + build)</button>
+
+        <label style="margin-top:18px">lineage (from dbt's real <code>manifest.json</code>)</label>
+        <ul id="lineage" class="lineage"></ul>
+      </div>
+
+      <div class="col">
+        <label>dbt terminal output</label>
+        <pre id="terminal"></pre>
+      </div>
+    </div>
+
+    <script type="module" src="/web/main.js"></script>
+  </body>
+</html>

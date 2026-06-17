@@ -1,42 +1,20 @@
 {
-  "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "npm install",
-  "framework": "vite",
+  "buildCommand": "npm run engine:wheelhouse && npm run basics:build",
+  "outputDirectory": "apps/transformation-lab-basics/dist",
+  "framework": null,
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
   "headers": [
     {
-      "source": "/robots.txt",
+      "source": "/wheelhouse/(.*)",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
-    },
-    {
-      "source": "/sitemap.xml",
-      "headers": [
-        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
-        { "key": "Cache-Control", "value": "public, max-age=604800" }
-      ]
-    },
-    {
-      "source": "/og-image:ext(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=2592000" }
-      ]
-    },
-    {
-      "source": "/favicon.svg",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=2592000" }
-      ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/:path((?!api|.*\\..*|_next|lesson/\\d+|privacy).*)",
-      "destination": "/"
     }
   ]
 }

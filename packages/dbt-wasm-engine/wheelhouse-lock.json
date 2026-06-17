@@ -1,0 +1,214 @@
+{
+  "packaging": {
+    "version": "24.2",
+    "source": "pyodide"
+  },
+  "micropip": {
+    "version": "0.9.0",
+    "source": "pyodide"
+  },
+  "networkx": {
+    "version": "3.6.1",
+    "source": "https://files.pythonhosted.org/packages/9e/c9/b2622292ea83fbb4ec318f5b9ab867d0a28ab43c5717bb85b0a5f6b3b0a4/networkx-3.6.1-py3-none-any.whl"
+  },
+  "leather": {
+    "version": "0.4.1",
+    "source": "pypi"
+  },
+  "colorama": {
+    "version": "0.4.6",
+    "source": "pypi"
+  },
+  "pytimeparse": {
+    "version": "1.1.8",
+    "source": "pypi"
+  },
+  "isodate": {
+    "version": "0.7.2",
+    "source": "pypi"
+  },
+  "jinja2": {
+    "version": "3.1.3",
+    "source": "pyodide"
+  },
+  "parsedatetime": {
+    "version": "2.6",
+    "source": "pypi"
+  },
+  "typing-extensions": {
+    "version": "4.15.0",
+    "source": "pypi"
+  },
+  "daff": {
+    "version": "1.4.2",
+    "source": "pypi"
+  },
+  "zipp": {
+    "version": "4.1.0",
+    "source": "pypi"
+  },
+  "importlib-metadata": {
+    "version": "8.9.0",
+    "source": "pypi"
+  },
+  "dbt-semantic-interfaces": {
+    "version": "0.9.2",
+    "source": "pypi"
+  },
+  "dbt-protos": {
+    "version": "1.0.514",
+    "source": "pypi"
+  },
+  "snowplow-tracker": {
+    "version": "1.1.0",
+    "source": "pypi"
+  },
+  "orderly-set": {
+    "version": "5.5.0",
+    "source": "pypi"
+  },
+  "deepdiff": {
+    "version": "8.6.2",
+    "source": "pypi"
+  },
+  "text-unidecode": {
+    "version": "1.3",
+    "source": "pypi"
+  },
+  "python-slugify": {
+    "version": "8.0.4",
+    "source": "pypi"
+  },
+  "pydantic": {
+    "version": "2.10.6",
+    "source": "pypi"
+  },
+  "protobuf": {
+    "version": "6.33.6",
+    "source": "pypi"
+  },
+  "dbt-adapters": {
+    "version": "1.24.2",
+    "source": "pypi"
+  },
+  "dbt-common": {
+    "version": "1.38.0",
+    "source": "pypi"
+  },
+  "mashumaro": {
+    "version": "3.14",
+    "source": "pypi"
+  },
+  "sqlparse": {
+    "version": "0.5.5",
+    "source": "pypi"
+  },
+  "dbt-duckdb": {
+    "version": "1.9.6",
+    "source": "pypi"
+  },
+  "pathspec": {
+    "version": "0.12.1",
+    "source": "pypi"
+  },
+  "babel": {
+    "version": "2.18.0",
+    "source": "pypi"
+  },
+  "agate": {
+    "version": "1.9.1",
+    "source": "pypi"
+  },
+  "dbt-core": {
+    "version": "1.10.8",
+    "source": "pypi"
+  },
+  "idna": {
+    "version": "3.7",
+    "source": "pyodide"
+  },
+  "charset-normalizer": {
+    "version": "3.3.2",
+    "source": "pyodide"
+  },
+  "pyyaml": {
+    "version": "6.0.2",
+    "source": "pyodide"
+  },
+  "certifi": {
+    "version": "2024.12.14",
+    "source": "pyodide"
+  },
+  "click": {
+    "version": "8.1.7",
+    "source": "pyodide"
+  },
+  "urllib3": {
+    "version": "2.2.3",
+    "source": "pyodide"
+  },
+  "requests": {
+    "version": "2.31.0",
+    "source": "pyodide"
+  },
+  "six": {
+    "version": "1.16.0",
+    "source": "pyodide"
+  },
+  "attrs": {
+    "version": "23.2.0",
+    "source": "pyodide"
+  },
+  "jsonschema-specifications": {
+    "version": "2023.12.1",
+    "source": "pyodide"
+  },
+  "pyrsistent": {
+    "version": "0.20.0",
+    "source": "pyodide"
+  },
+  "rpds-py": {
+    "version": "0.18.0",
+    "source": "pyodide"
+  },
+  "markupsafe": {
+    "version": "2.1.5",
+    "source": "pyodide"
+  },
+  "pytz": {
+    "version": "2024.1",
+    "source": "pyodide"
+  },
+  "annotated-types": {
+    "version": "0.6.0",
+    "source": "pyodide"
+  },
+  "python-dateutil": {
+    "version": "2.9.0.post0",
+    "source": "pyodide"
+  },
+  "more-itertools": {
+    "version": "10.2.0",
+    "source": "pyodide"
+  },
+  "msgpack": {
+    "version": "1.1.0",
+    "source": "pyodide"
+  },
+  "pydantic-core": {
+    "version": "2.27.2",
+    "source": "pyodide"
+  },
+  "referencing": {
+    "version": "0.34.0",
+    "source": "pyodide"
+  },
+  "jsonschema": {
+    "version": "4.21.1",
+    "source": "pyodide"
+  },
+  "duckdb": {
+    "version": "1.1.2",
+    "source": "pyodide"
+  }
+}

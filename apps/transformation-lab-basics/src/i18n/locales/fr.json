@@ -1,0 +1,244 @@
+{
+  "yamlDiagnostics": {
+    "syntax": "Erreur de syntaxe YAML : {{message}}",
+    "acceptedValuesMissingConfig": "Colonne « {{column}} » : accepted_values n'a pas son bloc de configuration - vérifiez l'indentation.",
+    "acceptedValuesWrongIndent": "Colonne « {{column}} » : values: doit être indenté à l'intérieur de arguments:, et non au même niveau.",
+    "relationshipsMissingConfig": "Colonne « {{column}} » : relationships n'a pas son bloc de configuration - vérifiez l'indentation.",
+    "relationshipsWrongIndent": "Colonne « {{column}} » : to: et field: doivent être indentés à l'intérieur de arguments:, et non au même niveau."
+  },
+  "header": {
+    "tagline": "Apprenez dbt dans votre navigateur",
+    "lesson": "Leçon",
+    "githubLabel": "Voir le code sur GitHub",
+    "linkedinLabel": "Auteur sur LinkedIn",
+    "backToIntro": "Retour à l'introduction",
+    "lightMode": "Passer en mode clair",
+    "darkMode": "Passer en mode sombre",
+    "changeLanguage": "Changer de langue",
+    "lessonsAria": "Leçons",
+    "resetLesson": "Réinitialiser la leçon",
+    "resetLessonConfirm": "Sûr ?"
+  },
+  "lessonPanel": {
+    "badge": "Leçon {{current}} / {{total}}",
+    "tasks": "Tâches",
+    "showHint": "Voir l'indice",
+    "furtherReading": "Pour aller plus loin",
+    "quiz": "Testez votre compréhension",
+    "nextLesson": "Leçon suivante →",
+    "courseComplete": "Vous avez terminé le cours. Allez construire quelque chose avec dbt."
+  },
+  "workspace": {
+    "lineage": "Lineage",
+    "commands": "Commandes",
+    "results": "Résultats"
+  },
+  "mobile": {
+    "sectionsAria": "Sections mobiles",
+    "tabs": {
+      "lesson": "Leçon",
+      "files": "Fichiers",
+      "editor": "Éditeur",
+      "terminal": "Terminal",
+      "database": "Database",
+      "lineage": "Lineage"
+    }
+  },
+  "intro": {
+    "tagline": "Apprenez dbt gratuitement dans votre navigateur.",
+    "subTagline": "{{count}} leçons interactives et courtes. Du vrai SQL, un vrai warehouse, un vrai DAG. Tout tourne dans cette page. Sans installation, sans inscription.",
+    "ctaBegin": "Commencer par la Leçon 1 ›",
+    "ctaContinue": "Continuer à apprendre ›",
+    "ctaBeginFull": "Commencer par la Leçon 1 : votre premier dbt model ›",
+    "restart": "Recommencer le cours",
+    "restartConfirm": "Recommencer le cours depuis la Leçon 1 ? Votre progression sera effacée.",
+    "welcomeLead": "Bienvenue sur ",
+    "welcomeProduct": "Data Transformation Lab",
+    "welcomeMid": ", une série de leçons courtes et interactives conçues pour vous aider à apprendre ",
+    "welcomeDbt": "dbt",
+    "welcomeTail": " directement dans votre navigateur, inspirée par ",
+    "welcomeSqlBoltAfter": ".",
+    "whatIsDbt": {
+      "heading": "Qu'est-ce que dbt ?",
+      "body": "dbt est l'outil open-source que les équipes data utilisent pour transformer les tables brutes du warehouse en models fiables, documentés et testés. Il s'appuie sur n'importe quel warehouse SQL (Snowflake, Databricks, BigQuery, Postgres, DuckDB, …) et vous donne un moyen de gérer votre SQL de transformation *comme du code* : versionné, modulaire et testable."
+    },
+    "didYouKnow": {
+      "title": "Le saviez-vous ?",
+      "body": "Les projets dbt ne sont que des dossiers contenant des fichiers `.sql` et `.yml`. Aucune syntaxe propriétaire. Si vous savez écrire du SQL, vous savez écrire du dbt. Mais dbt transforme ces fichiers en quelque chose de plus grand : un framework de transformation géré, testé, documenté, versionné et avec un lineage complet."
+    },
+    "dbtRun": {
+      "intro": "Un projet dbt est un dossier rempli de fichiers `.sql`. Chaque fichier est un `SELECT` (ce que dbt appelle un **model**). Quand vous lancez `dbt run`, dbt :",
+      "step1": "Lit tous vos models SQL",
+      "step2": "Détermine quels models dépendent des autres (le **DAG**)",
+      "step3": "Les exécute dans le bon ordre et matérialise les résultats dans votre Database",
+      "outro": "C'est l'idée centrale. Tout le reste (tests, docs, sources, materializations, snapshots) est construit par-dessus ces primitives."
+    },
+    "exampleDag": {
+      "heading": "Un exemple de DAG",
+      "intro": "Les pipelines réels ont plusieurs couches. Un schéma courant ressemble à ceci :",
+      "caption": "Les flèches sont des appels à `ref()` dans le SQL. dbt les lit, construit le graphe ci-dessus et exécute les models de gauche à droite.",
+      "legend": {
+        "source": "source",
+        "staging": "staging",
+        "intermediate": "intermediate",
+        "mart": "mart"
+      }
+    },
+    "aboutLessons": {
+      "heading": "À propos des leçons",
+      "p1": "Il y a {{count}} leçons courtes. Chacune introduit un seul concept, puis vous donne 3 à 5 petites tâches pour l'appliquer. Votre progression est sauvegardée automatiquement - fermez l'onglet et revenez plus tard.",
+      "p2": "Allez à votre rythme, modifiez le SQL librement et ne craignez pas de tout casser. Chaque leçon a un bouton « Réinitialiser la leçon » en haut, et chaque tâche a un bouton « Voir l'indice » si vous bloquez.",
+      "p3": "À la fin, vous serez prêt à ouvrir n'importe quel projet dbt réel et à contribuer dès le premier jour."
+    },
+    "beforeYouStart": {
+      "heading": "Avant de commencer",
+      "body": "Il vous suffit de connaître les bases du SQL - `SELECT`, `WHERE`, `GROUP BY`. C'est tout. Pas de Database, pas d'installation de dbt, pas d'expérience en ligne de commande nécessaire. Tout tourne dans votre navigateur."
+    },
+    "footer": {
+      "builtBy": "Réalisé par Bruno Lima",
+      "tag": "Open-source · Issues et PRs bienvenus"
+    }
+  },
+  "workspaceTour": {
+    "files": {
+      "title": "Fichiers",
+      "body": "Le dossier du projet dbt. Les models sont dans models/, les tests dans tests/, les CSV bruts dans seeds/. Cliquez sur un fichier pour l'ouvrir dans l'éditeur."
+    },
+    "editor": {
+      "title": "Éditeur",
+      "body": "Où vous écrivez du SQL et du YAML. Les modifications sont enregistrées instantanément - il n'y a pas d'étape de « sauvegarde » distincte."
+    },
+    "terminal": {
+      "title": "Terminal / Résultats / Lineage",
+      "body": "Lancez des commandes dbt (dbt run, dbt test, dbt build), inspectez les résultats de vos requêtes et regardez le DAG se mettre à jour à mesure que vous ajoutez des ref() entre vos models."
+    },
+    "lesson": {
+      "title": "Panneau de la leçon",
+      "body": "Vous êtes ici. Chaque leçon commence par un concept court, puis une liste de tâches. Le bouton « Voir l'indice » est votre ami."
+    }
+  },
+  "courseComplete": {
+    "eyebrow": "Cours terminé",
+    "title": "Vous avez fini Data Transformation Lab 🎉",
+    "body": "Vous pouvez maintenant lire n'importe quel projet dbt réel : sources, models, refs, materializations, seeds, tests, docs, sélecteurs, `dbt build`. Voilà la boîte à outils.",
+    "whatNext": "Et maintenant ?",
+    "step1Lead": "Installez dbt en local : ",
+    "step1Link": "guide d'installation de dbt Core",
+    "step2Lead": "Ouvrez un projet existant sur GitHub (essayez ",
+    "step2Link": "jaffle-shop",
+    "step2Tail": ") et parcourez le DAG de bout en bout.",
+    "step3Lead": "Ils arrivent dans les prochaines labs de cette série - pour l'instant, la documentation officielle : ",
+    "step3Macros": "macros",
+    "step3Incremental": "incremental models",
+    "step3Snapshots": "snapshots",
+    "step3Packages": "packages",
+    "step3Sep": ", ",
+    "step3End": ".",
+    "shareLinkedIn": "Partager sur LinkedIn →",
+    "backToIntro": "Retour à l'intro"
+  },
+  "terminal": {
+    "header": "terminal",
+    "emptyHintLead": "tapez une commande dbt ci-dessous - essayez ",
+    "emptyHintCmd": "dbt run",
+    "inputAria": "saisie du terminal dtlab"
+  },
+  "results": {
+    "header": "aperçu",
+    "rowsOne": "{{shown}} sur {{total}} ligne",
+    "rowsMany": "{{shown}} sur {{total}} lignes",
+    "noRows": "(aucune ligne)",
+    "empty": "Pas encore de résultats",
+    "emptyHintLead": "Exécutez un model puis cliquez sur ",
+    "emptyHintShow": "Show Results",
+    "emptyHintOr": "(ou lancez ",
+    "emptyHintCmd": "dbt show --select <model>",
+    "emptyHintEnd": ")"
+  },
+  "dag": {
+    "header": "dag",
+    "empty": "Visualiseur de DAG",
+    "emptyHint": "ajoutez un model pour voir le graphe",
+    "status": {
+      "passed": "Réussi",
+      "failed": "Échoué",
+      "notRun": "Non exécuté"
+    }
+  },
+  "files": {
+    "header": "Fichiers",
+    "newFile": "Nouveau fichier (entrez le chemin complet)",
+    "createHint": "↵ créer · esc annuler",
+    "rename": "Renommer (F2)",
+    "delete": "Supprimer le fichier",
+    "emptyLine1": "Pas encore de fichiers.",
+    "emptyLine2": "Cliquez sur + pour en créer un.",
+    "closeTab": "Fermer l'onglet",
+    "noFileOpen": "Aucun fichier ouvert"
+  },
+  "database": {
+    "header": "Database",
+    "empty": "Pas encore de tables"
+  },
+  "panel": {
+    "unlocked": "Débloqué",
+    "newPanelAria": "Nouveau panneau : {{panel}}. Cliquez pour fermer."
+  },
+  "errorBoundary": {
+    "eyebrow": "Quelque chose a planté",
+    "title": "Data Transformation Lab a rencontré une erreur inattendue",
+    "body": "Essayez de recharger la page. Si le problème persiste, vous pouvez réinitialiser votre progression sauvegardée - cela effacera les leçons terminées et les panneaux débloqués, mais devrait rétablir l'application.",
+    "reload": "Recharger la page",
+    "reset": "Réinitialiser la progression et recharger"
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "lastUpdated": "Dernière mise à jour :",
+    "introduction": {
+      "heading": "1. Introduction",
+      "p1": "Bienvenue sur Data Transformation Lab. Nous respectons votre vie privée et nous engageons à être transparents sur la manière dont nous collectons et utilisons vos informations.",
+      "p2": "Cette Politique de confidentialité décrit comment nous collectons, utilisons et protégeons vos données lorsque vous utilisez notre site."
+    },
+    "dataCollection": {
+      "heading": "2. Collecte de données",
+      "intro": "Nous collectons les types d'informations suivants :",
+      "navData": "Données de navigation : informations sur la façon dont vous utilisez notre site, comme les pages visitées, le temps passé et les actions effectuées. Ces données sont collectées de manière agrégée et anonyme.",
+      "browserData": "Données du navigateur : type de navigateur, système d'exploitation, langue et informations techniques similaires.",
+      "localStorage": "Stockage local : votre progression dans les leçons est enregistrée localement dans votre navigateur pour améliorer l'expérience d'apprentissage."
+    },
+    "dataUsage": {
+      "heading": "3. Comment nous utilisons vos données",
+      "intro": "Nous utilisons les données collectées pour :",
+      "improve": "Améliorer et optimiser l'expérience utilisateur",
+      "understand": "Comprendre comment vous interagissez avec notre contenu",
+      "analyze": "Analyser les tendances d'utilisation du site",
+      "save": "Sauvegarder votre progression d'apprentissage localement"
+    },
+    "cloudflare": {
+      "heading": "4. Cloudflare Web Analytics",
+      "intro": "Nous utilisons Cloudflare Web Analytics pour collecter des données analytiques sur la manière dont les visiteurs utilisent notre site. Cet outil :",
+      "aggregate": "Collecte les données de manière agrégée et anonyme",
+      "noCookies": "N'utilise pas de cookies de suivi tiers",
+      "noIndividual": "Ne vous identifie pas en tant qu'individu particulier",
+      "dnt": "Respecte le paramètre « Do Not Track » de votre navigateur",
+      "more": "Pour plus d'informations, consultez la",
+      "cloudflarePolicy": "politique de confidentialité de Cloudflare"
+    },
+    "storage": {
+      "heading": "5. Stockage des données",
+      "p1": "Votre progression est stockée uniquement dans le stockage local de votre navigateur. Nous n'enregistrons aucune information personnelle sur nos serveurs.",
+      "p2": "Si vous effacez les données de votre navigateur, votre progression sera perdue. Nous vous recommandons de ne pas le faire pendant vos études."
+    },
+    "rights": {
+      "heading": "6. Vos droits",
+      "intro": "Selon votre lieu de résidence, vous pouvez avoir des droits sur vos données :",
+      "gdpr": "RGPD (UE) : droit d'accès, de rectification, de suppression et à la portabilité des données",
+      "lgpd": "LGPD (Brésil) : droit d'accès, de correction, de suppression et d'opposition au traitement"
+    },
+    "contact": {
+      "heading": "7. Contact",
+      "text": "Si vous avez des questions sur cette Politique de confidentialité ou sur la manière dont nous traitons vos données, ouvrez une issue sur"
+    },
+    "footer": "Nous nous réservons le droit de mettre à jour cette Politique de confidentialité à tout moment. Les changements significatifs seront communiqués ici."
+  }
+}

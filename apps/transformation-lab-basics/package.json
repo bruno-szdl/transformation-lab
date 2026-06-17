@@ -1,0 +1,40 @@
+{
+  "name": "transformation-lab-basics",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "typecheck": "tsc -b",
+    "preview": "vite preview",
+    "gate": "npm run build && node test-lesson.mjs",
+    "certify": "npm run build && node certify-lessons.mjs",
+    "smoke": "npm run build && node smoke-home.mjs"
+  },
+  "dependencies": {
+    "@datagym/design": "github:bruno-szdl/datagym-design#v1.2.1",
+    "@dbt-wasm/engine": "*",
+    "@monaco-editor/react": "^4.7.0",
+    "dagre": "^0.8.5",
+    "i18next": "^26.1.0",
+    "js-yaml": "^4.1.1",
+    "monaco-editor": "^0.55.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-i18next": "^17.0.7",
+    "reactflow": "^11.11.4",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "@types/dagre": "^0.7.54",
+    "@types/js-yaml": "^4.0.9",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.9"
+  }
+}
